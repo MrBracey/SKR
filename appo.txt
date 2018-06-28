@@ -1,0 +1,981 @@
+#if 0
+void Orizzontali(int min_len,int *totpar,POINT base)//MOSCA NARNI
+{
+	POINT point;
+	char key[16],key2[32];
+	int cae=0;
+	int indice_base=-1;//narni2
+	OutputDebugString("SuperEngine H\n");
+	int start,stop;
+
+	if(base.y)//narni lione
+		{
+		start=base.y;
+		stop=start+1;
+		}
+	else
+		{
+		start=0;stop=15;
+		}
+	for(int y=start;y<stop;y++)
+
+	{
+		int target=15;		
+		
+alux:;
+		int itarget=16-target;//=numero di lettere della parola
+
+
+		for(int z=0;z<itarget;z++)//per tutte le lettere..
+		{	
+			int flag=0;
+			
+
+			//scarta se quella prima e' permanente
+			if(z)//se siamo oltre la prima lettera..
+				if(casa[y][z-1].flag==PERMANENTE)
+				{
+					//OutputDebugString("u1-");
+					continue;
+				}
+			//scarta se quella dopo e' permanente
+			if(target+z<15)
+				if(casa[y][target+z].flag==PERMANENTE)
+				{
+					//OutputDebugString("u2-");
+					continue;
+				}
+
+
+			if(base.y)//lione
+			{
+				if(z>base.x)
+				{
+					//OutputDebugString("U4-");
+					continue;//break;
+				}
+				if(target+z<base.x)//digione
+				{
+					//OutputDebugString("U5-");
+					continue;//break;
+				}
+
+			}
+		
+			for(int x=z;x<target+z;x++)//x=posizione
+			{
+				//controlla che la casella dopo sia libera
+				if(x<14)
+				{
+					if(target+z<15)//berlinoest
+						if(casa[y][target+z].flag==PERMANENTE)
+							goto thez;//non è libera
+				}
+				
+				if(casa[y][x].flag==PERMANENTE)
+				{
+					if(!flag)//coordinate dell'origine nella matrice
+					{
+						point.x=x;
+						point.y=y;
+					}
+					flag++;
+					key[x-z]=casa[y][x].s.lettera;
+				}
+				else
+					key[x-z]='?';
+			}
+			//if(min_len==1)
+			//	if(flag>min_len)//se sono tutte costanti 
+			//		continue;
+			if(flag>=min_len)//conto costanti>=minimo numero di costanti
+			{
+			//trovato qualcosa..
+			//	nparole=Find_in_Diz(buf);ù
+				cae++;
+				//Beep(220,10);
+				if(flag>1)
+					flag=flag;
+				
+				key[target]=0;
+				if(!strchr(key,'?'))
+					continue;//deve aggiungere almeno una lettera!
+
+				strcpy(key2,"$");
+				strcat(key2,key);
+				/*
+				sprintf(avviso,"%s - (H)y=%d x=%d trg=%d z=%d\n"
+					,key2,point.y,point.x,target,z);
+				OutputDebugString(avviso);
+				*/
+
+
+				//dopo che una parola e' stata trovata, vengono eliminate tutte le chiavi
+				//di lungh. inferiore a maxlen. una opzione potrebbe stabilire
+				//a quanto limitare il maxlen. ad es, anche se ho trov. una parola di 13
+				//voglio lo stesso cercare quelle di 7. allora metto maxlen=7
+				//maxlen=maxlen>7?7:maxlen;//DIGIONE!!
+				if(!base.y)//narni lione
+				{
+					if(strlen(key)<maxlen)//<>7?7:maxlen))//(maxlen<7?maxlen:maxlen-1))
+					{	
+						//OutputDebugString("MAXLEN\n");
+
+						continue;
+					}
+				}	
+
+				point.x=z;//PROVA|||
+
+				//cancella la zona appoggio dopo quella buona..
+				//int fim=totpar*sizeof(struct lemmaSTR);
+				//memset((byte*)&zona_appoggio+fim,0,sizeof(zona_appoggio)-fim);
+char avviso[166];
+				if(base.y)//lione
+				{
+				sprintf(avviso,"%s - (H)y=%d x=%d trg=%d z=%d\n"
+					,key2,point.y,point.x,target,z);
+				OutputDebugString(avviso);
+				}	
+				Analysis_Engine(key2,point,ORIZZONTALE,flag,totpar);
+
+#ifdef VERSIONEOK
+				*totpar=Analysis_Engine(key2,point,ORIZZONTALE,flag,*totpar);
+#endif
+
+				if(*totpar<0)
+				{
+				sprintf(avviso,"\nNO PAROLE - FINE\n"
+					,key2,point.y,point.x,target,z);
+				OutputDebugString(avviso);
+					return;
+				}	
+
+
+
+				
+				FIATA20
+
+				flag=0;
+
+			}
+thez:;
+		}//z
+		target--;
+		if(target)
+			goto alux;
+	}
+}
+void Verticali(int min_len,int *totpar,POINT base)//MOSCA lione<<<
+{
+
+POINT point;
+char key[16],key2[32];
+int cae=0;
+int indice_base=-1;//narni2
+int start,stop;//narni
+OutputDebugString("SuperEngine V\n");
+
+if(base.x)//lione
+{
+	start=base.x;
+	stop=start+1;
+}
+else
+{
+start=0;stop=15;
+}
+	
+for(int y=start;y<stop;y++)//movimento sull'asse x 
+{
+	int target=15;
+
+
+alux2:;
+	
+	
+	int itarget=16-target;
+	
+	
+	for(int z=0;z<itarget;z++)
+	{
+		memset(&key,0,sizeof(key));
+		int flag=0;
+		if(z)
+			if(casa[z-1][y].flag==PERMANENTE)
+				continue;
+		if(base.x)//lione
+		{
+			if(z>base.y)
+				break;
+			
+			if(target+z<base.y)//digione:la lunghezza deve comprendere la lettera 'jolly'
+				break;
+			
+		}
+		
+		for(int x=z;x<target+z;x++)
+		{
+
+
+			if(x<14)
+				if(target+z<15)//berlinoest
+					if(casa[target+z][y].flag==PERMANENTE)
+						goto thez2;
+
+			if(casa[x][y].flag==PERMANENTE)
+			{
+				if(!flag)//coordinate dell'origine nella matrice
+				{
+					point.x=y;
+					point.y=x;
+				}
+				flag++;
+				key[x-z]=casa[x][y].s.lettera;
+			}
+			else
+				key[x-z]='?';
+		}
+
+		//FLAG E' IL CONTEGGIO DELLE PERMANENTI
+		if(flag>=min_len)//tutto ma non le lettere singole
+		{
+			//trovato qualcosa..
+			if(flag>1)
+				flag=flag;
+
+			cae++;
+			key[target]=0;
+			if(!strchr(key,'?'))
+				continue;//deve aggiungere almeno una lettera!
+
+			strcpy(key2,"$");
+			strcat(key2,key);
+
+
+			//QUI CONTROLLA CHE LA LUNGHEZZA DELLA CHIAVE DI RICERCA SIA UGUALE O MAGGIORE
+			//ALLA PAROLA PIU' LUNGA GIA TROVATA
+			if(strlen(key)<maxlen)//(maxlen<7?maxlen:maxlen-1))
+				continue;
+			char avviso[166];
+			point.y=z;
+				if(base.x)//lione
+				{
+				sprintf(avviso,"%s - (H)y=%d x=%d trg=%d z=%d\n"
+					,key2,point.y,point.x,target,z);
+				OutputDebugString(avviso);
+				}	
+
+			//QUI RICERCA NEL DIZIONARIO CON LA CHIAVE
+			Analysis_Engine(key2,point,VERTICALE,flag,totpar);
+#ifdef VERSIONEOK
+			*totpar=Analysis_Engine(key2,point,VERTICALE,flag,*totpar);
+#endif
+
+			//QUI EVIDENTEMENTE NON PUO TROVARE PIU NIENTE..
+			if(*totpar<0)
+				return;
+
+			FIATA20
+		}
+thez2:;
+	}//z
+	target--;
+	if(target)
+		goto alux2;
+
+	}
+}
+
+#endif
+
+
+
+
+#ifdef VERSIONEOK
+Analysis_Engine(char *buf,POINT point,BYTE hv,BYTE nfisse,int parole_trovate)
+{
+/*
+//torna le parole del diz che contengono la parola inserita che
+//vale di più  (le lettere devono essere disponibili)
+//se ha trovato una valida di 5 lettere non cerca quelle di 4,3,2...
+
+buf:			chiave ricerca
+point:			coordinate logiche inizio parola
+hv:			orizzontale,verticale
+nfisse:			numero di permanenti
+parole_trovate: 	parole precedenti
+
+*/
+
+int start=0;
+int n,k;
+
+static char buffer[0xFFF]={0};//roma : era FFF
+
+char ugo[80];
+int index=0;
+int nparole,eliminate,g;
+char avviso[80];
+
+int lettere_disp=0;
+int fisse;
+int indice_ap;
+
+memset(buffer,0,sizeof(buffer));
+
+nparole=Find_in_Diz(buf,parole_trovate);
+if(nparole<parole_trovate)
+{
+ 	OutputDebugString("ahi!!");
+}
+nparole-=parole_trovate;
+if(!nparole)
+	return(parole_trovate);
+
+#ifdef MOSTRA_ELIM
+sprintf(avviso,"%s = %d parole nuove %d vecchie\n",buf,nparole,parole_trovate);
+OutputDebugString(avviso);
+#endif
+
+eliminate=0;
+int antibaco=parole_trovate;//ERA QUESTO IL FAMOSO BACO!!! ROMA l'a risolto!!!
+
+
+int idx_perp=-1;
+
+for(n=0;n<nparole;n++)
+{
+	indice_ap=n+antibaco;//parole_trovate; roma
+	Annulla_flag_temporanei_T(CONSIDERATA,PRESENTE);
+	fisse=0;
+	lettere_disp=0;
+	zona_appoggio[indice_ap].len=strlen(zona_appoggio[indice_ap].parola);
+	if(zona_appoggio[indice_ap].len<maxlen)//(maxlen<7?maxlen:maxlen-1))
+	{
+		#ifdef MOSTRA_ELIM
+		sprintf(avviso,"E1: la parola con indice %d non esiste\n",indice_ap);
+		OutputDebugString(avviso);
+		#endif
+		memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));//NON PUò cancellare, sennò resta a puntare alla 0!!!!
+		zona_appoggio[indice_ap].hv=0xFF;
+		eliminate++;
+		continue;
+	}
+	for(g=0;g<zona_appoggio[indice_ap].len;g++)
+	{
+		if(k=CheckDisp(zona_appoggio[indice_ap].parola[g]))
+		{
+			if(k==0xFF)
+			{
+				zona_appoggio[indice_ap].parola[g]=0;
+				zona_appoggio[indice_ap].len--;
+			}
+			else if(k>3)
+			{
+				zona_appoggio[indice_ap].parola[g]=k;
+				lettere_disp++;
+			}
+			else
+			{
+				if(k==3)
+					zona_appoggio[indice_ap].qsc++;
+				lettere_disp++;
+			}
+		}
+		else
+		{
+			#ifdef MOSTRA_ELIM //lettera non disponibile!
+			sprintf(avviso,"E2 (n/disp): %d:%s\n",indice_ap,zona_appoggio[indice_ap].parola);
+			OutputDebugString(avviso);
+			#endif
+			
+			memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));//NON PUò cancellare, sennò resta a puntare alla 0!!!!
+			zona_appoggio[indice_ap].hv=0xFF;
+			eliminate++;
+
+			goto nextbreak;//prossima parola..
+
+		}
+	}
+	if
+	(
+		(
+		strlen(zona_appoggio[indice_ap].parola)==lettere_disp
+		)
+		&& lettere_disp
+	)
+	{
+
+		if(lettere_disp>nfisse)
+		{
+				zona_appoggio[indice_ap].len=strlen(zona_appoggio[indice_ap].parola);
+				zona_appoggio[indice_ap].hv=hv;
+				zona_appoggio[indice_ap].index.x=point.x;
+				zona_appoggio[indice_ap].index.y=point.y;
+
+				if(zona_appoggio[indice_ap].len<maxlen)
+				{
+					#ifdef MOSTRA_ELIM
+					sprintf(avviso,"E3 (lenght): %d:%s\n",indice_ap,zona_appoggio[indice_ap].parola);
+					OutputDebugString(avviso);
+					#endif
+					memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));//NON PUò cancellare, sennò resta a puntare alla 0!!!!
+					zona_appoggio[indice_ap].hv=0xFF;
+					eliminate++;
+					continue;
+				}
+
+				Aggiorna_Flag(TEMPORANEA_PL2,&zona_appoggio[indice_ap]);//scrive il flag
+
+				//qui deve rimuovere l'arrìtributo pERMANENTE alla casa che hA FLAG_DIZ
+				//ALTRIMENTI NON LA CONTEGGIA..
+				for(int i1=0;i1<15;i1++)
+					for(int i2=0;i2<15;i2++)
+				if(casa[i1][i2].flag_perp)
+				{
+					casa[i1][i2].flag_perp=FALSE;
+					casa[i1][i2].flag=TEMPORANEA_PL2;
+				}
+					
+				if(zona_appoggio[indice_ap].value=ControLL(hv,zona_appoggio[indice_ap].index.y,zona_appoggio[indice_ap].index.x))
+				{
+
+					if(flag_mostra_idee)
+						Sleep(zona_appoggio[indice_ap].len*50);
+
+					memcpy(&zona_appoggio[parole_trovate],&zona_appoggio[indice_ap],sizeof(zona_appoggio[indice_ap]));
+
+					if(zona_appoggio[indice_ap].len>maxlen)
+						maxlen=zona_appoggio[indice_ap].len;
+
+					sprintf(avviso,"T%04d:%c%s(%d)=%d\n",
+						parole_trovate,
+						zona_appoggio[parole_trovate].qsc?'*':' ',
+						zona_appoggio[parole_trovate].parola,
+						zona_appoggio[parole_trovate].len,
+						zona_appoggio[parole_trovate].value);
+					OutputDebugString(avviso);
+
+					if(nfisse+1==zona_appoggio[parole_trovate].len)
+					{
+						idx_perp=parole_trovate;
+						//OutputDebugString("CheckPerpendicolare\n");
+						//CheckPerpendicolare(parole_trovate);//lione
+					}
+
+#if 0
+					//qui funziona ma salta la parola con solo 1 lettera
+					if(nfisse+1==zona_appoggio[parole_trovate].len)
+					{
+						OutputDebugString("CheckPerpendicolare\n");
+						CheckPerpendicolare(parole_trovate);//lione
+					}
+#endif
+					parole_trovate++;
+
+					if(flag_mostra_idee)
+					{
+
+						if(gFaseHelp==HELP_IS_ON)
+						{//
+							if(gMaxPuntiHelp<zona_appoggio[indice_ap].value)
+								gMaxPuntiHelp=zona_appoggio[indice_ap].value;
+						}
+						else
+							gMaxPuntiHelp=0;
+
+						if(strlen(buffer)<(sizeof(buffer)-32))
+						{
+
+
+							sprintf(ugo,"%02d %s%c [%c%X%X]\r\n",
+								zona_appoggio[indice_ap].value,
+								zona_appoggio[indice_ap].parola,
+								zona_appoggio[indice_ap].qsc?'*':' ',
+								zona_appoggio[indice_ap].hv==ORIZZONTALE?'H':'V',
+								zona_appoggio[indice_ap].index.y+1,
+								zona_appoggio[indice_ap].index.x+1
+								);
+							strtok(ugo,"\r\n");
+							char *t=ugo;
+							while(*t)
+							{
+								*t=toupper(*t);
+								t++;
+							}
+							int erro=SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_ADDSTRING,0,(LPARAM)ugo);
+							erro=SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_GETCOUNT,0,0);
+							erro=SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_SETCURSEL,(WPARAM)(erro-1),0);
+
+						}
+
+						else
+							OutputDebugString("Limite buffer raggiunto\n");
+
+
+
+						/*
+						ECCO COME SI FA SCORRERE UNA EDITBOX MULTILINE
+						O QUALUNQUE CONTROLLO CON SCROLL VERTICALE !!!!
+													*/
+						#ifdef VALPARAISO
+							SCROLLINFO si;
+							si.cbSize=sizeof(SCROLLINFO);
+							si.fMask=SIF_ALL;
+							GetScrollInfo(GetDlgItem(ghWndToolbarDlg,IDC_EDIT2),SB_VERT,&si);
+				
+							si.fMask=SIF_ALL;
+							si.nPos=si.nMax;
+				
+							SetScrollInfo(GetDlgItem(ghWndToolbarDlg,IDC_EDIT2),SB_VERT,&si,TRUE);
+						
+						#endif
+
+						/* FINE SCROLL VERTICALE*/
+						
+
+						if(flag_mostra_idee)//canicatti
+						{
+							//#M1
+							sprintf(avviso,"%s??",zona_appoggio[indice_ap].parola);
+							if(strcmp(avviso,old_parola))
+							{
+
+								//SE + CORTA, PARLA (PER NUOVO TURNO)
+								if( strlen(old_parola)>strlen(avviso))
+								{
+									old_parola[0]=0;
+									oldvalue=0;
+								}
+								//PARLA SE LA PAROLA E' + LUNGA DELL'ULTIMA
+								if(
+									strlen(avviso)>strlen(old_parola)
+									|
+									zona_appoggio[indice_ap].value>oldvalue
+									)
+								{
+									strcpy(old_parola,avviso);
+									oldvalue=zona_appoggio[indice_ap].value;
+									AggiornaFinestra();//bergamo mostra la parola in reverse
+									ParlaS(avviso);//canicatti
+									//qui si manda alla combo
+									SetDlgItemText(ghWndToolbarDlg,IDC_COMBO_SEARCH,zona_appoggio[indice_ap].parola);//glasgow3
+									Machine_Thinking=FALSE;
+									SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_BUTTON1,0L);//glasgow3
+									Sleep(2000);
+									Machine_Thinking=TRUE;
+
+								}
+							}
+						}
+						Sleep(zona_appoggio[indice_ap].len*50);//ankara2
+					}
+
+				}
+				else
+				{
+#ifdef MOSTRA_ELIM
+					sprintf(avviso,"E4(lati): %d:%s\n",indice_ap,zona_appoggio[indice_ap].parola);
+					OutputDebugString(avviso);
+#endif
+
+					memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));
+					eliminate++;
+					zona_appoggio[indice_ap].hv=0xFF;
+				}
+				Annulla_flag_temporanei_T(CONSIDERATA,PRESENTE);//spostato qui da su
+				Annulla_flag_temporanei(LIBERA);
+			}
+			else
+			{
+
+#ifdef MOSTRA_ELIM
+				sprintf(avviso,"E5 (fisse): %d:%s\n",indice_ap,zona_appoggio[indice_ap].parola);
+				OutputDebugString(avviso);
+#endif
+
+				memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));
+				zona_appoggio[indice_ap].hv=0xFF;
+				eliminate++;
+			}
+		}
+		else
+		{
+#ifdef MOSTRA_ELIM
+			sprintf(avviso,"E6: %d:%s\n",indice_ap,zona_appoggio[indice_ap].parola);
+			OutputDebugString(avviso);
+#endif
+			memset(&zona_appoggio[indice_ap],0,sizeof(lemmaSTR));
+			zona_appoggio[indice_ap].hv=0xFF;
+			eliminate++;
+		}
+
+nextbreak:;//prossima parola..
+
+	
+					if(idx_perp>=0)
+					{
+						
+						OutputDebugString("CheckPerpendicolare\n");
+						CheckPerpendicolare(idx_perp);//lione
+						idx_perp=-1;
+					}
+
+
+}//next n
+
+#ifdef MOSTRA_ELIM
+	sprintf(avviso,"(TOT%d) %d eliminate - %d buone\n",nparole,eliminate,parole_trovate);
+	OutputDebugString(avviso);
+#endif
+
+	return parole_trovate;
+}
+
+
+#endif
+
+
+#if 0
+BOOL ControLL(BYTE hv,int y,int x)
+{
+//	char avviso[80];
+	struct lemmaSTR appo;
+	char parola[32],parolabase[32];
+	int cnt=0;
+	int xflag=0;
+	int ctx=0;
+	int ystart,xstart;
+	int value=0;
+	int tvalue=0;
+	int mulflag=1;
+	int bvalue=0;
+	int bmulflag=1;
+//	int ck;
+
+	switch(hv)
+	{
+	case ORIZZONTALE:
+		ystart=y;
+		xstart=x;
+		while(casa[y][x].flag!=LIBERA&&x<15)
+		{
+			if(casa[y][x].vcasa<4)
+				bvalue+=casa[y][x].s.valore*casa[y][x].vcasa;			
+			else
+			{
+				bmulflag*=casa[y][x].vcasa-2;
+				bvalue+=casa[y][x].s.valore;
+			}
+			parolabase[ctx++]=casa[y][x].s.lettera;
+			if(casa[y][x].flag!=PERMANENTE)
+			{
+				//trova inizio parola verticale
+				while(casa[y][x].flag!=LIBERA&&y>=0)
+					y--;
+				y++;
+				if(y<0)
+					y=0;
+
+				for(y;;y++)
+				{
+					if(y>14)
+						break;
+					if(casa[y][x].flag!=LIBERA)
+					{
+						parola[cnt++]=casa[y][x].s.lettera;
+						if(casa[y][x].vcasa<4)
+							tvalue+=casa[y][x].s.valore*casa[y][x].vcasa;			
+						else
+						{
+							mulflag*=casa[y][x].vcasa-2;
+							tvalue+=casa[y][x].s.valore;
+						}
+
+					}
+					else
+						break;
+				}
+				parola[cnt]=0;
+				cnt=0;
+				if(strlen(parola)>LUNGHEZZA_MINIMA)
+				{
+				//	sprintf(avviso,"controll_H: %s",parola);
+				//	MessageBox(GetActiveWindow(),avviso,NULL,NULL);
+					strcpy(appo.parola,parola);
+					
+				
+					if(player==PLAYER2 && !Check_in_Diz(&appo,1))
+					{
+						
+						value=0;
+						return FALSE;
+					}
+					else if(player==PLAYER1)
+					{
+						appo.value=1;//sennò fallisce check in diz!!
+						if(Controlla_Inserimento(&appo)==FALSE)
+						{
+							value=0;
+							return RITIRA_INSERIMENTO;
+						}
+					
+					}
+				}
+				else
+				{
+							
+	
+#ifdef ROMA
+							
+		//CONTROLLA CHE I GRUPPI DI DDUE LETTERE
+		//CONTENGANO UNA VOCALE ED UNA CONSONANTE
+					xflag=0;
+					if(strlen(parola)==LUNGHEZZA_MINIMA)
+					{
+						xflag=0;//roma
+						for(int r=0;r<NUM_PROVINCIE;r++)
+							if(!strcmp(parola,provincia[r]))
+								xflag=1;
+						
+						if(!xflag)
+						{
+							if(player==PLAYER1)
+							{
+							//	PlaySound("barking dog.wav",NULL,NULL);
+								MessageBox(ghWndToolbarDlg,GBNA,"",MB_ICONSTOP);//ROMA
+								return RITIRA_INSERIMENTO;
+							}
+							else if(player==PLAYER2)
+								return FALSE;
+
+						}
+					}
+
+#endif
+					tvalue=0;
+					mulflag=1;
+
+				}
+			}
+			
+			value+=tvalue*mulflag;
+			tvalue=0;
+			mulflag=1;
+			x++;
+			y=ystart;
+		}
+		if(x-xstart>LUNGHEZZA_MINIMA)//SERVE PER NON CONTEGGIARE LE PAROLE DI DUE LETTERE
+		{
+			if(player==PLAYER1)
+			{
+				parolabase[ctx]=0;
+				strcpy(appo.parola,parolabase);
+				appo.value=1;//sennò fallisce check in diz!!
+				if(Controlla_Inserimento(&appo)==FALSE)
+				{
+					
+					value=0;
+					return RITIRA_INSERIMENTO;
+				}
+			}
+			value+=bvalue*bmulflag;
+		}//parola lunga
+		else
+		{
+#ifdef ROMA
+							
+		//CONTROLLA CHE I GRUPPI DI DDUE LETTERE
+		//CONTENGANO UNA VOCALE ED UNA CONSONANTE
+					xflag=0;
+
+					if(strlen(parola)==LUNGHEZZA_MINIMA)
+					{
+						
+						xflag=0;//ROMA
+						for(int r=0;r<NUM_PROVINCIE;r++)
+							if(!strcmp(parola,provincia[r]))
+								xflag=1;
+
+						if(xflag==3||!xflag)
+						{
+							if(player==PLAYER1)
+							{
+								
+								MessageBox(ghWndToolbarDlg,GBNA,"",MB_ICONSTOP);//ROMA
+								return RITIRA_INSERIMENTO;
+							}
+							else if(player==PLAYER2)
+								return FALSE;
+
+						}
+					}
+
+#endif
+
+		}//else
+		break;
+	case VERTICALE:
+		xstart=x;
+		ystart=y;
+		while(casa[y][xstart].flag!=LIBERA&&y<15)
+		{
+			if(casa[y][x].vcasa<4)
+				bvalue+=casa[y][x].s.valore*casa[y][x].vcasa;			
+			else
+			{
+				bmulflag*=casa[y][x].vcasa-2;
+				bvalue+=casa[y][x].s.valore;
+			}
+			parolabase[ctx++]=casa[y][x].s.lettera;
+			if(casa[y][xstart].flag!=PERMANENTE)
+			{
+		
+				//trova inizio parola orizzontale
+				while(casa[y][x].flag!=LIBERA&&x>=0)
+					x--;
+				x++;
+				if(x<0)
+					x=0;
+
+				for(x;;x++)
+				{
+					if(x>14)
+						break;
+					if(casa[y][x].flag!=LIBERA)
+					{
+						parola[cnt++]=casa[y][x].s.lettera;
+						if(casa[y][x].vcasa<4)
+							tvalue+=casa[y][x].s.valore*casa[y][x].vcasa;			
+						else
+						{
+							mulflag*=casa[y][x].vcasa-2;
+							tvalue+=casa[y][x].s.valore;
+						}
+					}
+					else
+						break;
+				}
+				parola[cnt]=0;
+				cnt=0;
+				if(strlen(parola)>LUNGHEZZA_MINIMA)
+				{
+				//	sprintf(avviso,"controll_H: %s",parola);
+				//	MessageBox(GetActiveWindow(),avviso,NULL,NULL);
+					strcpy(appo.parola,parola);
+					if(player==PLAYER2 && !Check_in_Diz(&appo,1))
+					{
+						if(player==PLAYER2)
+						{
+							value=0;
+							return FALSE;
+						}
+					}
+					else if(player==PLAYER1)
+					{
+						appo.value=1;//sennò fallisce check in diz!!
+						if(Controlla_Inserimento(&appo)==FALSE)
+						{
+							
+							value=0;
+							return RITIRA_INSERIMENTO;
+						}
+					
+					}
+				}
+				else
+				{
+#ifdef ROMA
+							
+		//CONTROLLA CHE I GRUPPI DI DDUE LETTERE
+		//CONTENGANO UNA VOCALE ED UNA CONSONANTE
+					xflag=0;
+					if(strlen(parola)==LUNGHEZZA_MINIMA)
+					{
+						
+						xflag=0;//ROMA
+						for(int r=0;r<NUM_PROVINCIE;r++)
+							if(!strcmp(parola,provincia[r]))
+								xflag=1;
+
+						if(xflag==3||!xflag)
+						{
+							if(player==PLAYER1)
+							{
+								
+								MessageBox(ghWndToolbarDlg,GBNA,"",MB_ICONSTOP);//ROMA
+								return RITIRA_INSERIMENTO;
+							}
+							else if(player==PLAYER2)
+								return FALSE;
+
+						}
+					}
+
+#endif
+					tvalue=0;
+					mulflag=1;
+				}//else
+			}//permanente
+			value+=tvalue*mulflag;
+			tvalue=0;
+			mulflag=1;
+			y++;
+			x=xstart;
+		}//while
+		if(y-ystart>LUNGHEZZA_MINIMA)//SERVE PER NON CONTEGGIARE LE PAROLE DI DUE LETTERE
+		{
+			if(player==PLAYER1)
+			{
+				parolabase[ctx]=0;
+				strcpy(appo.parola,parolabase);
+				appo.value=1;//sennò fallisce check in diz!!
+				if(Controlla_Inserimento(&appo)==FALSE)
+				{
+					value=0;
+					return RITIRA_INSERIMENTO;
+				}
+			}
+			value+=bvalue*bmulflag;
+		}//parola lunga
+		else
+		{
+#ifdef ROMA
+							
+		//CONTROLLA CHE I GRUPPI DI DDUE LETTERE
+		//CONTENGANO UNA VOCALE ED UNA CONSONANTE
+					xflag=0;
+					if(strlen(parola)==LUNGHEZZA_MINIMA)
+					{
+						
+						xflag=0;//ROMA
+						for(int r=0;r<NUM_PROVINCIE;r++)
+							if(!strcmp(parola,provincia[r]))
+								xflag=1;
+
+						if(xflag==3||!xflag)
+						{
+							if(player==PLAYER1)
+							{
+								
+								MessageBox(ghWndToolbarDlg,GBNA,"",MB_ICONSTOP);//ROMA
+								return RITIRA_INSERIMENTO;
+							}
+							else if(player==PLAYER2)
+								return FALSE;
+
+						}
+					}
+
+#endif
+			value+=0;
+		}//else
+		break;
+	}//eosw hv
+	//in value dovrei avere il valore delle parole nate dagli incroci
+	//ma per ora non si ritorna
+	value+=AggiungiExtra();
+	return value;
+}
+#endif

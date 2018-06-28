@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="inglese_R|Win32">
+      <Configuration>inglese_R</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{B0289621-E5E2-43BF-8219-27DBFEA8C9AB}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='inglese_R|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='inglese_R|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='inglese_R|Win32'">
+    <OutDir>.\scarabeo___Win32_inglese_R\</OutDir>
+    <IntDir>.\scarabeo___Win32_inglese_R\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;ITALIA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\scarabeo.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>copy                       .\italia\*.bmp                       .\</Command>
+    </PreLinkEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\scarabeo.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0410</Culture>
+      <PreprocessorDefinitions>NDEBUG;_ITALIA;_NOSET2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\scarabeo.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release\scarabeo.exe</OutputFile>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='inglese_R|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\scarabeo___Win32_inglese_R\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\scarabeo___Win32_inglese_R\scarabeo.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\scarabeo___Win32_inglese_R\</ObjectFileName>
+      <ProgramDataBaseFileName>.\scarabeo___Win32_inglese_R\</ProgramDataBaseFileName>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>copy                       .\world\*.bmp                       .\</Command>
+    </PreLinkEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\scarabeo___Win32_inglese_R\scarabeo.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0809</Culture>
+      <PreprocessorDefinitions>NDEBUG;_IRISH;_SET2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\scarabeo___Win32_inglese_R\scarabeo.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>Release/scaraben.exe</OutputFile>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;ITALIA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>Debug/serial.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <PreLinkEvent>
+      <Command>copy                       .\italia\*.bmp                       .\</Command>
+    </PreLinkEvent>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\scarabeo.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0410</Culture>
+      <PreprocessorDefinitions>_DEBUG;_ITALIA;_NOSET2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\scarabeo.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Debug\scarabeo.exe</OutputFile>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="errori.cpp" />
+    <ClCompile Include="grafica.cpp" />
+    <ClCompile Include="inits.cpp" />
+    <ClCompile Include="LemmiMachine.cpp" />
+    <ClCompile Include="procedure.cpp" />
+    <ClCompile Include="scarabeo.cpp" />
+    <ClCompile Include="supercomputer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="scarabeo.h" />
+    <ClInclude Include="supercomputer.h" />
+    <ClInclude Include="tessing.h" />
+    <ClInclude Include="tessita.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cifre\app1.ico" />
+    <Image Include="bitmap1.bmp" />
+    <Image Include="cifre\bitmap1.bmp" />
+    <Image Include="cifre\bitmap15.bmp" />
+    <Image Include="bitmap2.bmp" />
+    <Image Include="cifre\bitmap2.bmp" />
+    <Image Include="bitmap3.bmp" />
+    <Image Include="cifre\bitmap3.bmp" />
+    <Image Include="bitmap4.bmp" />
+    <Image Include="cifre\bitmap5.bmp" />
+    <Image Include="bmp00001.bmp" />
+    <Image Include="cifre\bmp00001.bmp" />
+    <Image Include="bmp00002.bmp" />
+    <Image Include="cifre\bmp00002.bmp" />
+    <Image Include="bmp00003.bmp" />
+    <Image Include="cifre\bmp00003.bmp" />
+    <Image Include="bmp00004.bmp" />
+    <Image Include="cifre\bmp00004.bmp" />
+    <Image Include="bmp00005.bmp" />
+    <Image Include="cifre\bmp00005.bmp" />
+    <Image Include="bmp00006.bmp" />
+    <Image Include="cifre\bmp00006.bmp" />
+    <Image Include="bmp00007.bmp" />
+    <Image Include="cifre\bmp00007.bmp" />
+    <Image Include="bmp00008.bmp" />
+    <Image Include="cifre\bmp00008.bmp" />
+    <Image Include="bmp00009.bmp" />
+    <Image Include="cifre\bmp00009.bmp" />
+    <Image Include="bmp00010.bmp" />
+    <Image Include="cifre\bmp00010.bmp" />
+    <Image Include="bmp00011.bmp" />
+    <Image Include="cifre\bmp00011.bmp" />
+    <Image Include="bmp00012.bmp" />
+    <Image Include="cifre\bmp00012.bmp" />
+    <Image Include="bmp00013.bmp" />
+    <Image Include="cifre\bmp00013.bmp" />
+    <Image Include="bmp00014.bmp" />
+    <Image Include="cifre\bmp00014.bmp" />
+    <Image Include="bmp00015.bmp" />
+    <Image Include="cifre\bmp00015.bmp" />
+    <Image Include="bmp00016.bmp" />
+    <Image Include="bmp00017.bmp" />
+    <Image Include="bmp00018.bmp" />
+    <Image Include="bmp00019.bmp" />
+    <Image Include="bmp00020.bmp" />
+    <Image Include="bmp00021.bmp" />
+    <Image Include="bmp00022.bmp" />
+    <Image Include="bmp00023.bmp" />
+    <Image Include="bmp00023_B.bmp" />
+    <Image Include="bmp00024.bmp" />
+    <Image Include="bmp00024_B.bmp" />
+    <Image Include="bmp00025.bmp" />
+    <Image Include="bmp00026.bmp" />
+    <Image Include="bmp00026_B.bmp" />
+    <Image Include="bmp00027.bmp" />
+    <Image Include="bmp00027_B.bmp" />
+    <Image Include="bmp00028.bmp" />
+    <Image Include="bmp00029.bmp" />
+    <Image Include="bmp0025_B.bmp" />
+    <Image Include="cifre\computer.bmp" />
+    <Image Include="firma.bmp" />
+    <Image Include="firmata.bmp" />
+    <Image Include="ico00001.ico" />
+    <Image Include="icon1.ico" />
+    <Image Include="icon2.ico" />
+    <Image Include="cifre\man.bmp" />
+    <Image Include="cifre\scarabeo.bmp" />
+    <Image Include="scrabble.bmp" />
+    <Image Include="scrabblebasta.bmp" />
+    <Image Include="scrabblebello.bmp" />
+    <Image Include="scrabblebn.bmp" />
+    <Image Include="scrabblelum.bmp" />
+    <Image Include="scrabblenuovo.bmp" />
+    <Image Include="scrabbleombra.bmp" />
+    <Image Include="scrabblepassaggio.bmp" />
+    <Image Include="standard.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="scarabeo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="scarabeo.voc.it" />
+    <CustomBuild Include="errori.asp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="appo.txt" />
+    <Text Include="FREQUENZE INGLESI.TXT" />
+    <Text Include="FREQUENZE ITALIA.TXT" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

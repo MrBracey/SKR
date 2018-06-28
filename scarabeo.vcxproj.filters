@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b299ab82-5176-41ea-816e-15be9562fd80}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ea1507ee-2b1d-43cf-bd8d-c0ef0924efe5}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{f9e781ed-e6f0-40bd-9ce2-2fda3ab9b56c}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="errori.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grafica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LemmiMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="procedure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scarabeo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="supercomputer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scarabeo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="supercomputer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tessita.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cifre\app1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bitmap15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bitmap4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bitmap5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00009.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00009.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00010.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00010.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00011.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00011.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00012.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00012.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00013.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00013.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00014.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00014.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00015.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\bmp00015.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00016.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00017.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00018.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00019.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00023.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00023_B.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00024.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00024_B.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00025.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00026.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00026_B.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00027.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00027_B.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00028.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp00029.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp0025_B.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\computer.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="firma.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="firmata.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\man.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cifre\scarabeo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabble.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblebasta.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblebello.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblebn.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblelum.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblenuovo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabbleombra.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="scrabblepassaggio.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="standard.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="scarabeo.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="appo.txt" />
+    <Text Include="FREQUENZE INGLESI.TXT" />
+    <Text Include="FREQUENZE ITALIA.TXT" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="scarabeo.voc.it">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="errori.asp" />
+  </ItemGroup>
+</Project>

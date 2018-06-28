@@ -1,0 +1,80 @@
+idee scarabit
+
+
+problemi
+schermo che sparisce (GDI)
+selezione lettere non efficace e con bachetto (tessera va su)
+tasti non letti durante elaborazione..
+
+migliorie
+trasformare la editbox del cerca in combo in modo da poter richiamare vecchie chiavi
+
+	if(z=strstr((char*)por,"a-e-i-o")){*z=VOC3;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-a-i-o")){*z=VOC3;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-a-e-o")){*z=VOC3;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-a-e-i")){*z=VOC3;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"a-e-i")){*z=VOC5;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-a-i")){*z=VOC5;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-a-e")){*z=VOC5;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"a-i-o")){*z=VOC6;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-a-o")){*z=VOC6;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-a-i")){*z=VOC6;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-i-o")){*z=VOC7;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-e-o")){*z=VOC7;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-e-i")){*z=VOC7;*(z+1)='\0';}
+	//questa mancava!VOC11
+	else if(z=strstr((char*)por,"a-e-o")){*z=VOC11;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-a-o")){*z=VOC11;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-a-e")){*z=VOC11;*(z+1)='\0';}
+	
+	else if(z=strstr((char*)por,"a-e")){*z=VOC1;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-a")){*z=VOC1;*(z+1)='\0';}
+//	else if(z=strstr((char*)por,"i-o")){*z=VOC0;*(z+1)='\0';}
+	//crea errore con VOC4
+	else if(z=strstr((char*)por,"o-i")){*z=VOC0;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-i")){*z=VOC2;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-e")){*z=VOC2;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"a-i")){*z=VOC8;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"i-a")){*z=VOC8;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"a-o")){*z=VOC9;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-a")){*z=VOC9;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"e-o")){*z=VOC10;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"o-e")){*z=VOC10;*(z+1)='\0';}
+	else if(z=strstr((char*)por,"-o")){*z=VOC4;*(z+1)='\0';}
+
+b:4341
+c:15043
+d:5894
+f:4172
+g 6841
+h 1760
+l 12516
+m 8490
+n 17498
+p 7671
+q 492
+r 25088
+s 16187
+t 21419
+u 6641
+v 3861
+z 4488
+
+
+a=28873+5326+1923+20+1040+40+36+20
+e=23215+5326+5694+1923+20+3+0+20
+i=32315+6180+5694+1923+20+1040+3+40
+o=18403+6180+1923+1419+1040+3+36+0+20
+
+0=6180
+1=5326
+2=5694
+3=1923
+4 1419
+5=20
+6=1040
+7=3
+8=40
+9=36
+: 0
+; 20

@@ -1,0 +1,91 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: scarabeo - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPD.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "ITALIA" /FR"Debug/" /Fp"Debug/serial.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Progetti\Scarabeo\scarabeo.cpp"
+"C:\Progetti\Scarabeo\supercomputer.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPD.tmp" 
+Creating temporary file "C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPE.bat" with contents
+[
+@echo off
+copy                       .\italia\*.bmp                       .\
+]
+Creating command line "C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPE.bat"
+Compiling...
+scarabeo.cpp
+c:\progetti\scarabeo\scarabeo.h(272) : warning C4005: 'MessageBox' : macro redefinition
+        c:\programmi\microsoft visual studio\vc98\include\winuser.h(6152) : see previous definition of 'MessageBox'
+c:\progetti\scarabeo\scarabeo.cpp(538) : warning C4018: '<' : signed/unsigned mismatch
+c:\progetti\scarabeo\scarabeo.cpp(1869) : warning C4018: '<' : signed/unsigned mismatch
+c:\progetti\scarabeo\scarabeo.cpp(1886) : warning C4018: '<' : signed/unsigned mismatch
+supercomputer.cpp
+c:\progetti\scarabeo\scarabeo.h(272) : warning C4005: 'MessageBox' : macro redefinition
+        c:\programmi\microsoft visual studio\vc98\include\winuser.h(6152) : see previous definition of 'MessageBox'
+Creating temporary file "C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPF.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Winmm.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/scarabeo.pdb" /debug /machine:I386 /out:"Debug/scarabeo.exe" /pdbtype:sept 
+.\Debug\errori.obj
+.\Debug\grafica.obj
+.\Debug\inits.obj
+.\Debug\LemmiMachine.obj
+.\Debug\procedure.obj
+.\Debug\scarabeo.obj
+.\Debug\supercomputer.obj
+.\Debug\scarabeo.res
+]
+Creating command line "link.exe @C:\DOCUME~1\PORTAT~1\IMPOST~1\Temp\RSPF.tmp"
+
+.\italia\bitmap1.bmp
+.\italia\bitmap2.bmp
+.\italia\bitmap3.bmp
+.\italia\bitmap4.bmp
+.\italia\bmp00001.bmp
+.\italia\bmp00002.bmp
+.\italia\bmp00003.bmp
+.\italia\bmp00004.bmp
+.\italia\bmp00005.bmp
+.\italia\bmp00006.bmp
+.\italia\bmp00007.bmp
+.\italia\bmp00008.bmp
+.\italia\bmp00009.bmp
+.\italia\bmp00010.bmp
+.\italia\bmp00011.bmp
+.\italia\bmp00012.bmp
+.\italia\bmp00013.bmp
+.\italia\bmp00014.bmp
+.\italia\bmp00015.bmp
+.\italia\bmp00016.bmp
+.\italia\bmp00017.bmp
+.\italia\bmp00018.bmp
+.\italia\bmp00019.bmp
+.\italia\bmp00020.bmp
+.\italia\bmp00021.bmp
+.\italia\bmp00022.bmp
+.\italia\bmp00023.bmp
+.\italia\bmp00024.bmp
+.\italia\bmp00025.bmp
+.\italia\bmp00026.bmp
+.\italia\bmp00027.bmp
+.\italia\bmp00028.bmp
+       32 file copiati.
+<h3>Output Window</h3>
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/scarabeo.bsc"  .\Debug\errori.sbr .\Debug\grafica.sbr .\Debug\inits.sbr .\Debug\LemmiMachine.sbr .\Debug\procedure.sbr .\Debug\scarabeo.sbr .\Debug\supercomputer.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+scarabeo.exe - 0 error(s), 5 warning(s)
+</pre>
+</body>
+</html>

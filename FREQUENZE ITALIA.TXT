@@ -1,0 +1,112 @@
+berlinoest
+a		37966		12%			15%	15
+b		4419	3%	1%			2%	2
+c		15241	9%	5%			6%	6
+d		5962	4%	2%			2%	2
+e		36761		12%			15%	15
+f		4221	3%	1%			2%	2
+g		6939	4%	2%			3%	3
+h		1827	1%	1%			1%	1
+i		47822		15%			19%	19
+l		12706	8%	4%			5%	5
+m		8601	5%	3%			3%	3
+n		17705	11%	6%			7%	7
+o		29478		9%			12%	12
+p		7804	5%	2%			3%	3
+q		504	0%	0%			0%	1
+r		25373	15%	8%			10%	10
+s		16414	10%	5%			7%	7
+t		21721	13%	7%			9%	9
+u		6753	4%	2%			3%	3
+v		3900	2%	1%			2%	2
+z		4531	3%	1%			2%	2
+
+
+
+
+-------------------------------------------------
+				EFFETTIVE	NUOVE	PUNTI
+i	47215	19		12		15		1
+a	37278	15		12		12		1
+e	36201	15		12		12		1
+o	29024	12		12		10		1
+r	25088	10		7		9		1
+t	21419	9		7		9		1
+n	17498	7		6		8		2
+s	16187	7		7		8		2
+c	15043	6		7		6		2
+l	12516	5		6		6		2
+m	8490	3		6		5		4
+p	7671	3		4		5		4
+g	6841	3		4		4		4
+u	6641	3		4		4		4
+d	5894	2		4		3		4
+z	4488	2		2		3		8
+b	4341	2		4		2		8
+f	4172	2		4		2		8
+v	3861	2		4		2		8
+h	1760	1		2		1		10
+q	492		0		1		1		10
+
+
+	312120	127		127		127	
+
+//TESSERE VERSIONE ITALIA (12*4+7*4+6*3+4*7+2*2+1)+2=48+28+18+28+4+1+2=
+
+
+
+#define A	1		//1
+#define E	1		//1
+#define I	1		//1
+#define O	1		//1
+#define R	1		//1
+#define T	1		//1
+#define N	2		//2
+#define C	2		//1
+#define S	2		//2
+#define L	2		//2
+#define M	2		//2
+#define P	2		//2
+#define G	4		//4
+#define U	4		//4
+#define D	4		//4
+#define Z	4		//8
+#define B	4		//4
+#define F	8		//4
+#define V	8		//4
+#define H	8
+#define Q	10		//10
+#define W	10		//10
+#define X	10		//10
+#define Y	10		//10
+#define K	10		//10
+#define J	10		//10
+
+#define QA	12		//1
+#define QE	12		//1
+#define QI	15		//1
+#define QO	10		//1
+#define QR	9		//1
+#define QT	9		//1
+#define QN	8		//2
+#define QC	6		//1
+#define QS	8		//2
+#define QL	6		//2
+#define QM	5		//2
+#define QP	5		//2
+#define QG	4		//4
+#define QU	4		//4
+#define QD	3		//4
+#define QZ	3		//8
+#define QB	2		//4
+#define QF	2		//4
+#define QV	2		//4
+#define QH	1
+#define QQ	1		//10
+#define QW	0		//10
+#define QX	0		//10
+#define QY	0		//10
+#define QK	0		//10
+#define QJ	0		//10
+
+

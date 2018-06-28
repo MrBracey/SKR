@@ -1,0 +1,83 @@
+				NUM	PUNTI
+e	27190	14	15	1
+a	19200	10	10	1
+i	19156	10	10	1
+r	17522	9	8	1
+t	17408	9	8	1
+o	16849	9	8	1
+n	16593	9	8	1
+s	14226	8	6	1
+l	12781	7	6	2
+c	10112	5	5	2
+u	9007	5	4	2
+d	8918	5	4	2
+p	7569	4	4	2
+m	6919	4	4	2
+h	6378	3	4	2
+g	6048	3	4	2
+b	4946	3	3	4
+Y	4351	2	3	4
+f	4239	2	3	4
+W	2877	2	2	4
+K	2625	1	2	8
+v	2579	1	2	8
+X	673		0	1	10
+z	663		0	1	10
+q	424		0	1	10
+J	415		0	1	10
+
+	239668	127	127	
+
+#define A	1		//1
+#define E	1		//1
+#define I	1		//1
+#define O	1		//1
+#define R	1		//1
+#define T	1		//1
+#define N	1		//2
+#define S	1		//2
+#define C	2		//1
+#define L	2		//2
+#define M	2		//2
+#define P	2		//2
+#define U	2		//4
+#define D	2		//4
+#define H	2
+#define G	2		//4
+#define B	4		//4
+#define F	4		//4
+#define W	4 		//10
+#define Y	4 		//10
+#define K	8		//10
+#define V	8		//4
+#define Z	10		//8
+#define Q	10		//10
+#define X	10		//10
+#define J	10		//10
+
+#define QA	10		//1
+#define QE	15		//1
+#define QI	10		//1
+#define QO	8		//1
+#define QR	8		//1
+#define QT	8		//1
+#define QN	8		//2
+#define QS	6		//2
+#define QL	6		//2
+#define QC	5		//1
+#define QM	4		//2
+#define QP	4		//2
+#define QG	4		//4
+#define QU	4		//4
+#define QH	4
+#define QD	4		//4
+#define QB	3		//4
+#define QF	3		//4
+#define QY	3		//10
+#define QV	2		//4
+#define QW	2		//10
+#define QK	2		//10
+#define QX	1		//10
+#define QJ	1		//10
+#define QZ	1		//8
+#define QQ	1		//10

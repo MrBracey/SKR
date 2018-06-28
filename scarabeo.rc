@@ -1,0 +1,883 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Lingua di sistema resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,7,1,0
+ PRODUCTVERSION 1,7,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041004b0"
+        BEGIN
+            VALUE "Comments", "word puzzle game player vs computer"
+            VALUE "CompanyName", "Iacopo Braccesi"
+            VALUE "FileDescription", "iabra@hotmail.com"
+            VALUE "FileVersion", "1, 7, 1, 0"
+            VALUE "InternalName", "scarabit"
+            VALUE "LegalCopyright", "2008"
+            VALUE "OriginalFilename", "scarabit.exe"
+            VALUE "ProductName", "ScaraBIT"
+            VALUE "ProductVersion", "1, 7, 1, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x410, 1200
+    END
+END
+
+#endif    // Lingua di sistema resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Italiano (Italia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG1$(_ITALIA) DIALOGEX 0, 0, 443, 327
+#else
+IDD_DIALOG1 DIALOGEX 0, 0, 443, 327
+#endif
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Nuova",IDC_START,331,43,64,17,BS_CENTER | BS_VCENTER | BS_MULTILINE | BS_FLAT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Ripristina",IDC_RIPRISTINA,331,60,64,13,BS_CENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    CONTROL         "Scegli tu",IDC_CHECK_VAL,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | NOT WS_VISIBLE,421,303,8,11
+    PUSHBUTTON      "Rifiuta",IDC_RIFIUTA,398,239,38,20,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Ruota",IDC_RUOTA,327,221,30,20,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Aiuto",IDC_HELPME,398,221,38,20,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    CONTROL         "Parla",IDC_FAI_SILENZIO,"Button",BS_AUTO3STATE | BS_MULTILINE | BS_NOTIFY | NOT WS_VISIBLE,422,310,8,10
+    PUSHBUTTON      "Demo",IDC_DEMOX,403,44,33,16,BS_LEFT | BS_MULTILINE | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "?",IDC_PINT,413,200,15,14,NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cerca:",IDC_BUTTON1,332,185,29,14,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Modifica",IDC_EDIT_DIZ,332,201,36,14,BS_CENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Salva",IDC_SALVA,403,60,33,13,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Annulla",IDC_ANNULLA,356,221,43,20,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Check",IDC_CALCOLA,327,239,30,39,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Conferma",IDC_CONFERMA,356,239,43,39,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Schioda",IDOK,437,316,6,11,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "Passa",IDC_MYHELP,398,257,38,20,BS_CENTER | BS_VCENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_LEFT,375,314,56,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER,WS_EX_RIGHT
+    CONTROL         IDB_SEGNAPUNTI,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,332,7,104,23
+    CONTROL         IDB_COMPUTER,IDC_STATIC,"Static",SS_BITMAP,389,31,47,9
+    CONTROL         IDB_MAN,IDC_STATIC,"Static",SS_BITMAP,332,31,47,9
+    LISTBOX         IDC_LIST,331,161,103,20,LBS_NOINTEGRALHEIGHT | WS_VSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_COMBO_SEARCH,364,185,72,75,CBS_DROPDOWN | WS_VSCROLL
+    PUSHBUTTON      "*",IDC_AST,396,200,15,14,NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    LTEXT           "Disponibili",IDC_STATIC,398,290,32,8
+    GROUPBOX        "Dizionario",IDC_STATIC,327,151,109,68,0,WS_EX_RIGHT
+    LTEXT           "Ins",IDC_STATIC,379,202,11,11
+    PUSHBUTTON      "Mescola",IDC_MESCOLA,327,279,34,10,BS_FLAT | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,168,37,19,12,ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Idee",IDC_CHECK_IDEE,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_FLAT,399,279,34,10
+    CONTROL         "Tessere",IDC_CHECK_TESSERE,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_NOTIFY | BS_FLAT,363,279,34,10
+    EDITTEXT        IDC_EDIT2,331,76,103,70,ES_MULTILINE | ES_UPPERCASE | ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP,WS_EX_STATICEDGE
+END
+#endif
+
+IDD_DIALOG2 DIALOGEX 0, 0, 118, 173
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,152,26,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,152,28,14
+    EDITTEXT        IDC_EDIT1,7,7,50,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,7,29,103,113,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | WS_VSCROLL,WS_EX_DLGMODALFRAME
+    PUSHBUTTON      "Cerca",IDC_BUTTON1,65,7,45,15
+END
+
+IDD_DIALOG3 DIALOG 0, 0, 116, 71
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,32,50,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,78,7,8,14,NOT WS_VISIBLE
+    CONTROL         "Lingua Italiana",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,7,102,15
+    CONTROL         "English Language",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,22,102,13
+    GROUPBOX        "Static",IDC_STATIC,7,7,72,28
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG4$(_ITALIA) DIALOGEX 0, 0, 124, 137
+#else
+IDD_DIALOG4 DIALOGEX 0, 0, 124, 137
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "ScaraBIT"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Battezza",IDOK,75,92,42,40
+    PUSHBUTTON      "Cancel",IDCANCEL,85,101,6,7,NOT WS_VISIBLE
+    CONTROL         IDB_A,IDC_STATIC,"Static",SS_BITMAP,7,7,21,20
+    CONTROL         IDB_B,IDC_STATIC,"Static",SS_BITMAP,29,7,21,20
+    CONTROL         IDB_C,IDC_STATIC,"Static",SS_BITMAP,51,7,21,20
+    CONTROL         IDB_D,IDC_STATIC,"Static",SS_BITMAP,73,7,21,20
+    CONTROL         IDB_E,IDC_STATIC,"Static",SS_BITMAP,95,7,21,20
+    CONTROL         IDB_K,IDC_STATIC,"Static",SS_BITMAP,7,49,21,20
+    CONTROL         IDB_L,IDC_STATIC,"Static",SS_BITMAP,29,49,21,20
+    CONTROL         IDB_M,IDC_STATIC,"Static",SS_BITMAP,51,49,21,20
+    CONTROL         IDB_N,IDC_STATIC,"Static",SS_BITMAP,73,49,21,20
+    CONTROL         IDB_O,IDC_STATIC,"Static",SS_BITMAP,95,49,21,20
+    CONTROL         IDB_F,IDC_STATIC,"Static",SS_BITMAP,7,28,21,20
+    CONTROL         IDB_G,IDC_STATIC,"Static",SS_BITMAP,29,28,21,20
+    CONTROL         IDB_H,IDC_STATIC,"Static",SS_BITMAP,51,28,21,20
+    CONTROL         IDB_I,IDC_STATIC,"Static",SS_BITMAP,73,28,21,20
+    CONTROL         IDB_J,IDC_STATIC,"Static",SS_BITMAP,95,28,21,20
+    CONTROL         IDB_P,IDC_STATIC,"Static",SS_BITMAP,7,70,21,20
+    CONTROL         IDB_Q,IDC_STATIC,"Static",SS_BITMAP,29,70,21,20
+    CONTROL         IDB_R,IDC_STATIC,"Static",SS_BITMAP,51,70,21,20
+    CONTROL         IDB_S,IDC_STATIC,"Static",SS_BITMAP,73,70,21,20
+    CONTROL         IDB_T,IDC_STATIC,"Static",SS_BITMAP,95,70,21,20
+    CONTROL         IDB_U,IDC_STATIC,"Static",SS_BITMAP,7,91,21,20
+    CONTROL         IDB_V,IDC_STATIC,"Static",SS_BITMAP,29,91,21,20
+    CONTROL         IDB_X,IDC_STATIC,"Static",SS_BITMAP,7,112,21,20
+    CONTROL         IDB_Y,IDC_STATIC,"Static",SS_BITMAP,29,112,21,20
+    CONTROL         IDB_Z,IDC_STATIC,"Static",SS_BITMAP,51,112,21,20
+    CONTROL         IDB_W,IDC_STATIC,"Static",SS_BITMAP,52,91,21,20
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG5$(_ITALIA) DIALOGEX 0, 0, 121, 209
+#else
+IDD_DIALOG5 DIALOGEX 0, 0, 121, 209
+#endif
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Modifica Dizionario"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Esegui",IDOK,40,164,43,14
+    PUSHBUTTON      "Annulla",IDCANCEL,73,190,43,14
+    EDITTEXT        IDC_ORIG,10,15,97,10,ES_UPPERCASE | ES_READONLY
+    EDITTEXT        IDC_NUOVO,10,62,97,10,ES_UPPERCASE | ES_AUTOHSCROLL | NOT WS_BORDER
+    CONTROL         "",IDC_A,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,108,15,8
+    CONTROL         "",IDC_E,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,36,108,15,8
+    CONTROL         "",IDC_I,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,108,15,8
+    CONTROL         "",IDC_O,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,87,108,15,8
+    CONTROL         "Inserimento",IDC_INS,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,10,28,60,10
+    CTEXT           "FINALI AGGIUNTIVE",IDC_STATIC,11,95,97,8
+    CONTROL         IDB_A,IDC_STATIC,"Static",SS_BITMAP,11,119,21,20
+    CONTROL         IDB_E,IDC_STATIC,"Static",SS_BITMAP,36,119,21,20
+    CONTROL         IDB_I,IDC_STATIC,"Static",SS_BITMAP,61,118,21,20
+    CONTROL         IDB_O,IDC_STATIC,"Static",SS_BITMAP,87,118,21,20
+    CONTROL         "Sostituzione",IDC_SOS,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,28,39,60,10
+    CONTROL         "Cancellazione",IDC_CAN,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,47,50,60,10
+    GROUPBOX        "1.Selezionare operazione",IDC_STATIC,3,3,114,75
+    GROUPBOX        "2.Opzioni extra",IDC_STATIC,3,84,114,63
+    GROUPBOX        "3.Aggiornamento",IDC_STATIC,3,153,114,30
+END
+#endif
+
+IDD_DIALOG6 DIALOGEX 0, 0, 441, 327
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "ScaraBIT -  iabra@hotmail.com"
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Comincia",IDC_START,389,226,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Ripristina",IDC_RIPRISTINA,389,248,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Schioda",IDOK,7,309,45,11,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT2,331,40,103,70,ES_MULTILINE | ES_UPPERCASE | ES_READONLY | WS_VSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "Cerca",IDC_BUTTON1,389,165,45,14,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "OK",IDC_CONFERMA,331,271,45,23,BS_CENTER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PUNTI1,281,112,43,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_PUNTI2,282,127,35,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "Punti Giocatore",IDC_STATIC,221,112,50,8,NOT WS_VISIBLE
+    LTEXT           "Punti Computer",IDC_STATIC,222,127,49,8,NOT WS_VISIBLE
+    PUSHBUTTON      "Annulla",IDC_ANNULLA,331,248,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Salva",IDC_SALVA,389,237,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Passo",IDC_MYHELP,331,226,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    CONTROL         "CPU: Tessere",IDC_CHECK_TESSERE,"Button",BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,331,196,60,10
+    CONTROL         "CPU: Idee",IDC_CHECK_IDEE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,331,206,49,10
+    EDITTEXT        IDC_LEFT,417,312,17,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER,WS_EX_RIGHT
+    CONTROL         "CPU: Conferma",IDC_CHECK_VAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,331,216,65,10
+    CONTROL         "Modalità Demo ",IDC_DEMO,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,269,158,35,10
+    PUSHBUTTON      "Aiuto",IDC_HELPME,331,237,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Test",IDC_TESTME,61,239,45,17,NOT WS_VISIBLE
+    CONTROL         IDB_SEGNAPUNTI,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,331,7,104,23
+    CONTROL         IDB_COMPUTER,IDC_STATIC,"Static",SS_BITMAP,387,31,47,9
+    CONTROL         IDB_MAN,IDC_STATIC,"Static",SS_BITMAP,333,31,47,9
+    PUSHBUTTON      "Modifica dizionario",IDC_EDIT_DIZ,332,183,102,11,BS_CENTER,WS_EX_STATICEDGE
+    PUSHBUTTON      "Calcola",IDC_CALCOLA,331,259,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Rifiuta",IDC_RIFIUTA,389,259,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Ruota",IDC_RUOTA,405,210,29,13,0,WS_EX_CLIENTEDGE
+    LISTBOX         IDC_LIST,331,111,103,39,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Demo",IDC_DEMOX,405,196,29,13,0,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_COMBO_SEARCH,331,151,103,75,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "*",IDC_AST,332,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "?",IDC_PINT,347,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "X",IDC_ICS,362,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG1$(_IRISH) DIALOGEX 0, 0, 443, 327
+#else
+IDD_DIALOG1 DIALOGEX 0, 0, 443, 327
+#endif
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "N E W   GAME",IDC_START,397,111,39,26,BS_CENTER | BS_MULTILINE | BS_FLAT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Load",IDC_RIPRISTINA,398,138,38,13,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    CONTROL         "Judge",IDC_CHECK_VAL,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_FLAT | NOT WS_VISIBLE,365,138,29,16,WS_EX_DLGMODALFRAME
+    PUSHBUTTON      "Refuse!",IDC_RIFIUTA,373,242,34,13,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Rota te",IDC_RUOTA,359,300,23,20,BS_MULTILINE | BS_FLAT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Ask Help",IDC_HELPME,413,237,28,22,BS_CENTER | BS_VCENTER | BS_MULTILINE | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    CONTROL         "Parla",IDC_FAI_SILENZIO,"Button",BS_AUTO3STATE | BS_MULTILINE | BS_NOTIFY | NOT WS_VISIBLE,403,296,8,10
+    PUSHBUTTON      "AUTO",IDC_DEMOX,333,111,39,26,BS_CENTER | BS_MULTILINE | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "?",IDC_PINT,418,218,15,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Seek",IDC_BUTTON1,337,202,29,14,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Edit..",IDC_EDIT_DIZ,337,218,36,14,BS_CENTER | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Save",IDC_SALVA,333,138,27,13,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    CONTROL         "Ideas",IDC_CHECK_IDEE,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_FLAT,279,286,29,11
+    CONTROL         "Tiles",IDC_CHECK_TESSERE,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_NOTIFY | BS_FLAT,244,286,29,11
+    PUSHBUTTON      "Take\nBack",IDC_ANNULLA,333,237,30,23,BS_CENTER | BS_VCENTER | BS_MULTILINE | NOT WS_TABSTOP,WS_EX_CLIENTEDGE | WS_EX_RIGHT
+    PUSHBUTTON      "Calculate",IDC_CALCOLA,334,260,39,13,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Confirm",IDC_CONFERMA,333,274,48,22,BS_CENTER | BS_MULTILINE | BS_FLAT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Schioda",IDOK,437,316,6,11,NOT WS_VISIBLE | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT2,333,40,103,70,ES_MULTILINE | ES_UPPERCASE | ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Pass..",IDC_MYHELP,392,263,48,22,BS_LEFT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE | WS_EX_RIGHT
+    EDITTEXT        IDC_LEFT,375,314,56,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER,WS_EX_RIGHT
+    CONTROL         IDB_SEGNAPUNTI,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,332,7,104,23
+    CONTROL         IDB_COMPUTER,IDC_STATIC,"Static",SS_BITMAP,389,31,47,9
+    CONTROL         IDB_MAN,IDC_STATIC,"Static",SS_BITMAP,332,31,47,9
+    LISTBOX         IDC_LIST,337,164,103,37,LBS_NOINTEGRALHEIGHT | WS_VSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_COMBO_SEARCH,368,202,72,75,CBS_DROPDOWN | WS_VSCROLL
+    PUSHBUTTON      "*",IDC_AST,401,218,15,14,NOT WS_TABSTOP
+    LTEXT           "Disponibili",IDC_STATIC,398,290,32,8
+    GROUPBOX        "Dictionary",IDC_STATIC,333,154,109,82,0,WS_EX_RIGHT
+    LTEXT           "Ins",IDC_STATIC,384,220,11,11
+    PUSHBUTTON      "Shuf fle",IDC_MESCOLA,171,300,24,20,BS_MULTILINE | BS_FLAT | NOT WS_TABSTOP,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT1,7,287,205,9,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,6,5,305,281,WS_EX_DLGMODALFRAME
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG5$(_IRISH) DIALOGEX 0, 0, 127, 210
+#else
+IDD_DIALOG5 DIALOGEX 0, 0, 127, 210
+#endif
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "MOD Dictionary"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "GO",IDOK,40,164,43,14,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cancel",IDCANCEL,73,190,43,14,0,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_ORIG,10,15,97,10,ES_UPPERCASE | ES_READONLY
+    EDITTEXT        IDC_NUOVO,7,68,97,10,ES_UPPERCASE | ES_AUTOHSCROLL | NOT WS_BORDER
+    CONTROL         "",IDC_A,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | NOT WS_VISIBLE | WS_TABSTOP,11,108,15,8,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_E,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | NOT WS_VISIBLE | WS_TABSTOP,36,108,15,8,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_I,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | NOT WS_VISIBLE | WS_TABSTOP,61,108,15,8,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_O,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | NOT WS_VISIBLE | WS_TABSTOP,87,108,15,8,WS_EX_DLGMODALFRAME
+    CONTROL         "INSERT",IDC_INS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,10,25,60,13,WS_EX_DLGMODALFRAME
+    CTEXT           "EXTRA FINALS",IDC_STATIC,11,95,97,8,NOT WS_VISIBLE
+    CONTROL         IDB_A,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,11,119,21,20
+    CONTROL         IDB_E,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,36,119,21,20
+    CONTROL         IDB_I,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,61,118,21,20
+    CONTROL         IDB_O,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,87,118,21,20
+    CONTROL         "MODIFY",IDC_SOS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,28,38,60,13,WS_EX_DLGMODALFRAME
+    CONTROL         "ERASE",IDC_CAN,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_TABSTOP,47,51,60,13,WS_EX_DLGMODALFRAME
+    GROUPBOX        "1.Select",IDC_STATIC,3,3,114,78
+    GROUPBOX        "2.Opzioni extra",IDC_STATIC,3,84,114,63,NOT WS_VISIBLE
+    GROUPBOX        "2.Update",IDC_STATIC,3,153,114,30
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    "IDD_DIALOG1$(_ITALIA)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 436
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 111
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 109
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    "IDD_DIALOG4$(_ITALIA)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    "IDD_DIALOG5$(_ITALIA)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 114
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_DIALOG6, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 434
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+
+    "IDD_DIALOG1$(_IRISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 436
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+
+    "IDD_DIALOG5$(_IRISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 120
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_A                   BITMAP                  "bitmap2.bmp"
+
+IDB_D                   BITMAP                  "bmp00003.bmp"
+
+IDB_E                   BITMAP                  "bmp00004.bmp"
+
+IDB_F                   BITMAP                  "bmp00005.bmp"
+
+IDB_G                   BITMAP                  "bmp00006.bmp"
+
+IDB_H                   BITMAP                  "bitmap3.bmp"
+
+IDB_I                   BITMAP                  "bitmap4.bmp"
+
+IDB_J                   BITMAP                  "bitmap1.bmp"
+
+IDB_K                   BITMAP                  "bmp00007.bmp"
+
+IDB_L                   BITMAP                  "bmp00008.bmp"
+
+IDB_M                   BITMAP                  "bmp00009.bmp"
+
+IDB_N                   BITMAP                  "bmp00010.bmp"
+
+IDB_O                   BITMAP                  "bmp00011.bmp"
+
+IDB_P                   BITMAP                  "bmp00012.bmp"
+
+IDB_Q                   BITMAP                  "bmp00013.bmp"
+
+IDB_R                   BITMAP                  "bmp00014.bmp"
+
+IDB_S                   BITMAP                  "bmp00015.bmp"
+
+IDB_T                   BITMAP                  "bmp00016.bmp"
+
+IDB_U                   BITMAP                  "bmp00017.bmp"
+
+IDB_V                   BITMAP                  "bmp00018.bmp"
+
+IDB_X                   BITMAP                  "bmp00019.bmp"
+
+IDB_Y                   BITMAP                  "bmp00020.bmp"
+
+IDB_Z                   BITMAP                  "bmp00021.bmp"
+
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_1L                  BITMAP                  "standard.bmp"
+
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_3L                  BITMAP                  "bmp00024.bmp"
+
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_2P                  BITMAP                  "bmp00025.bmp"
+
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_2L                  BITMAP                  "bmp00026.bmp"
+
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_3P                  BITMAP                  "bmp00027.bmp"
+
+#endif
+IDB_SCARABEO            BITMAP                  "bmp00023.bmp"
+
+IDB_W                   BITMAP                  "bmp00028.bmp"
+
+IDB_VUOTA               BITMAP                  "cifre\\bmp00014.bmp"
+
+IDB_CIFRA4              BITMAP                  "cifre\\bmp00002.bmp"
+
+IDB_CIFRA3              BITMAP                  "cifre\\bmp00003.bmp"
+
+IDB_CIFRA2              BITMAP                  "cifre\\bmp00004.bmp"
+
+IDB_CIFRA1              BITMAP                  "cifre\\bmp00005.bmp"
+
+IDB_CIFRA0              BITMAP                  "cifre\\bmp00006.bmp"
+
+IDB_CIFRA7              BITMAP                  "cifre\\bmp00007.bmp"
+
+IDB_CIFRA8              BITMAP                  "cifre\\bmp00008.bmp"
+
+IDB_CIFRA9              BITMAP                  "cifre\\bmp00009.bmp"
+
+IDB_BITMAP10            BITMAP                  "cifre\\bmp00010.bmp"
+
+IDB_BITMAP11            BITMAP                  "cifre\\bmp00011.bmp"
+
+IDB_CIFRA5              BITMAP                  "cifre\\bmp00001.bmp"
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDB_COMPUTER$(_ITALIA)  BITMAP                  "cifre\\bitmap15.bmp"
+
+#else
+IDB_COMPUTER            BITMAP                  "cifre\\bitmap15.bmp"
+
+#endif
+#endif
+IDB_B                   BITMAP                  "bmp00001.bmp"
+
+IDB_C                   BITMAP                  "bmp00002.bmp"
+
+IDB_CIFRA6              BITMAP                  "cifre\\bitmap5.bmp"
+
+IDB_SEGNAPUNTI          BITMAP                  "cifre\\bitmap1.bmp"
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDB_MAN$(_ITALIA)       BITMAP                  "cifre\\bmp00012.bmp"
+
+#else
+IDB_MAN                 BITMAP                  "cifre\\bmp00012.bmp"
+
+#endif
+#endif
+IDB_DORSO               BITMAP                  "cifre\\scarabeo.bmp"
+
+IDB_BITMAP1             BITMAP                  "cifre\\bmp00015.bmp"
+
+IDB_BITMAP2             BITMAP                  "cifre\\bitmap2.bmp"
+
+#if defined(APSTUDIO_INVOKED) || !defined(_SET2)
+IDB_FIRMA               BITMAP                  "cifre\\bitmap3.bmp"
+
+#endif
+IDB_SCARABOK            BITMAP                  "bmp00022.bmp"
+
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_3P$(_SET2)          BITMAP                  "bmp00027_B.bmp"
+
+#else
+IDB_3P                  BITMAP                  "bmp00027_B.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_1L$(_SET2)          BITMAP                  "bmp00023_B.bmp"
+
+#else
+IDB_1L                  BITMAP                  "bmp00023_B.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_3L$(_SET2)          BITMAP                  "bmp00024_B.bmp"
+
+#else
+IDB_3L                  BITMAP                  "bmp00024_B.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_2P$(_SET2)          BITMAP                  "bmp0025_B.bmp"
+
+#else
+IDB_2P                  BITMAP                  "bmp0025_B.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_2L$(_SET2)          BITMAP                  "bmp00026_B.bmp"
+
+#else
+IDB_2L                  BITMAP                  "bmp00026_B.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_SET2)
+#if defined(APSTUDIO_INVOKED)
+IDB_FIRMA$(_SET2)       BITMAP                  "firmata.bmp"
+
+#else
+IDB_FIRMA               BITMAP                  "firmata.bmp"
+
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON                    "icon1.ico"
+
+IDI_ICON1               ICON                    "ico00001.ico"
+
+IDI_SMALL               ICON                    "icon2.ico"
+
+IDI_SETUP               ICON                    "cifre\\app1.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    MENUITEM "Lingua\tVK_ESCAPE",           IDM_ESCAPE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS
+BEGIN
+    VK_ESCAPE,      IDM_ESCAPE,             VIRTKEY 
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(_ITALIA)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG1$(_ITALIA) AFX_DIALOG_LAYOUT
+#else
+IDD_DIALOG1 AFX_DIALOG_LAYOUT
+#endif
+BEGIN
+    0
+END
+#endif
+
+#endif    // Italiano (Italia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Inglese (Irlanda) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENI)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_EIRE
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG1_OLD$(_IRISH) DIALOGEX 0, 0, 441, 327
+#else
+IDD_DIALOG1_OLD DIALOGEX 0, 0, 441, 327
+#endif
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "ScarabIT  - mailto:iabra@hotmail.com"
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Start",IDC_START,389,226,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Restore",IDC_RIPRISTINA,389,248,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Schioda",IDOK,7,309,45,11,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT2,331,40,103,70,ES_MULTILINE | ES_UPPERCASE | ES_READONLY | WS_VSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "Lookup",IDC_BUTTON1,389,165,45,14,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "OK",IDC_CONFERMA,331,271,45,23,BS_CENTER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PUNTI1,281,112,43,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER | NOT WS_TABSTOP
+    EDITTEXT        IDC_PUNTI2,282,127,35,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "Punti Giocatore",IDC_STATIC,221,112,50,8,NOT WS_VISIBLE
+    LTEXT           "Punti Computer",IDC_STATIC,222,127,49,8,NOT WS_VISIBLE
+    PUSHBUTTON      "Cancel",IDC_ANNULLA,331,248,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Save",IDC_SALVA,389,237,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Pass",IDC_MYHELP,331,226,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    CONTROL         "CPU: Tiles",IDC_CHECK_TESSERE,"Button",BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,331,196,49,10
+    CONTROL         "CPU: Ideas",IDC_CHECK_IDEE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,331,206,52,10
+    EDITTEXT        IDC_LEFT,417,312,17,12,ES_READONLY | ES_NUMBER | NOT WS_VISIBLE | NOT WS_BORDER,WS_EX_RIGHT
+    CONTROL         "CPU: Confirm",IDC_CHECK_VAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,331,216,58,10
+    CONTROL         "Modalità Demo ",IDC_DEMO,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,269,158,35,10
+    PUSHBUTTON      "Help",IDC_HELPME,331,237,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Test",IDC_TESTME,61,239,45,17,NOT WS_VISIBLE
+    CONTROL         IDB_SEGNAPUNTI,IDC_STATIC,"Static",SS_BITMAP | NOT WS_VISIBLE,331,7,104,23
+    CONTROL         IDB_COMPUTER,IDC_STATIC,"Static",SS_BITMAP,387,31,47,9
+    CONTROL         IDB_MAN,IDC_STATIC,"Static",SS_BITMAP,333,31,47,9
+    PUSHBUTTON      "Modify dictionary",IDC_EDIT_DIZ,332,183,102,11,BS_CENTER,WS_EX_STATICEDGE
+    PUSHBUTTON      "Calc",IDC_CALCOLA,331,259,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Refuse",IDC_RIFIUTA,389,259,45,11,BS_LEFT,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Rotate",IDC_RUOTA,405,210,29,13,0,WS_EX_CLIENTEDGE
+    LISTBOX         IDC_LIST,331,111,103,39,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Demo",IDC_DEMOX,405,196,29,13,0,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_COMBO_SEARCH,331,151,103,75,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "*",IDC_AST,332,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "?",IDC_PINT,347,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "X",IDC_ICS,362,165,15,14,NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG4$(_IRISH) DIALOGEX 0, 0, 124, 137
+#else
+IDD_DIALOG4 DIALOGEX 0, 0, 124, 137
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Baptize",IDOK,75,92,42,40
+    PUSHBUTTON      "Cancel",IDCANCEL,85,101,6,7,NOT WS_VISIBLE
+    CONTROL         IDB_A,IDC_STATIC,"Static",SS_BITMAP,7,7,21,20
+    CONTROL         IDB_B,IDC_STATIC,"Static",SS_BITMAP,29,7,21,20
+    CONTROL         IDB_C,IDC_STATIC,"Static",SS_BITMAP,51,7,21,20
+    CONTROL         IDB_D,IDC_STATIC,"Static",SS_BITMAP,73,7,21,20
+    CONTROL         IDB_E,IDC_STATIC,"Static",SS_BITMAP,95,7,21,20
+    CONTROL         IDB_K,IDC_STATIC,"Static",SS_BITMAP,7,49,21,20
+    CONTROL         IDB_L,IDC_STATIC,"Static",SS_BITMAP,29,49,21,20
+    CONTROL         IDB_M,IDC_STATIC,"Static",SS_BITMAP,51,49,21,20
+    CONTROL         IDB_N,IDC_STATIC,"Static",SS_BITMAP,73,49,21,20
+    CONTROL         IDB_O,IDC_STATIC,"Static",SS_BITMAP,95,49,21,20
+    CONTROL         IDB_F,IDC_STATIC,"Static",SS_BITMAP,7,28,21,20
+    CONTROL         IDB_G,IDC_STATIC,"Static",SS_BITMAP,29,28,21,20
+    CONTROL         IDB_H,IDC_STATIC,"Static",SS_BITMAP,51,28,21,20
+    CONTROL         IDB_I,IDC_STATIC,"Static",SS_BITMAP,73,28,21,20
+    CONTROL         IDB_J,IDC_STATIC,"Static",SS_BITMAP,95,28,21,20
+    CONTROL         IDB_P,IDC_STATIC,"Static",SS_BITMAP,7,70,21,20
+    CONTROL         IDB_Q,IDC_STATIC,"Static",SS_BITMAP,29,70,21,20
+    CONTROL         IDB_R,IDC_STATIC,"Static",SS_BITMAP,51,70,21,20
+    CONTROL         IDB_S,IDC_STATIC,"Static",SS_BITMAP,73,70,21,20
+    CONTROL         IDB_T,IDC_STATIC,"Static",SS_BITMAP,95,70,21,20
+    CONTROL         IDB_U,IDC_STATIC,"Static",SS_BITMAP,7,91,21,20
+    CONTROL         IDB_V,IDC_STATIC,"Static",SS_BITMAP,29,91,21,20
+    CONTROL         IDB_X,IDC_STATIC,"Static",SS_BITMAP,7,112,21,20
+    CONTROL         IDB_Y,IDC_STATIC,"Static",SS_BITMAP,29,112,21,20
+    CONTROL         IDB_Z,IDC_STATIC,"Static",SS_BITMAP,51,112,21,20
+    CONTROL         IDB_W,IDC_STATIC,"Static",SS_BITMAP,52,91,21,20
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_DIALOG5_OLD$(_IRISH) DIALOGEX 0, 0, 111, 94
+#else
+IDD_DIALOG5_OLD DIALOGEX 0, 0, 111, 94
+#endif
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,72,43,14
+    PUSHBUTTON      "Annulla",IDCANCEL,61,72,43,14
+    EDITTEXT        IDC_ORIG,7,5,97,12,ES_UPPERCASE | ES_READONLY
+    EDITTEXT        IDC_NUOVO,8,51,97,12,ES_UPPERCASE | ES_AUTOHSCROLL
+    CONTROL         "Insert",IDC_INS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,25,17,60,10
+    CONTROL         "Modify",IDC_SOS,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,25,28,60,10
+    CONTROL         "Delete",IDC_CAN,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,25,39,60,10
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    "IDD_DIALOG1_OLD$(_IRISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 434
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+
+    "IDD_DIALOG4$(_IRISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    "IDD_DIALOG5_OLD$(_IRISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 104
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDB_MAN$(_IRISH)        BITMAP                  "cifre\\man.bmp"
+
+#else
+IDB_MAN                 BITMAP                  "cifre\\man.bmp"
+
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_IRISH)
+#if defined(APSTUDIO_INVOKED)
+IDB_COMPUTER$(_IRISH)   BITMAP                  "cifre\\computer.bmp"
+
+#else
+IDB_COMPUTER            BITMAP                  "cifre\\computer.bmp"
+
+#endif
+#endif
+#endif    // Inglese (Irlanda) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

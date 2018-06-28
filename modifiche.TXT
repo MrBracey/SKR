@@ -1,0 +1,8 @@
+se cpu conferma, deve chiedere prima di cambiare le tessere.
+
+non deve chiedere due volte di selezionare la parola per modificare
+
+la listbo deve scorrere!
+
+dopo salvare? non deve chiudere
+

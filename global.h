@@ -8,7 +8,7 @@ struct lemmaSTR lemma[NUM_LEMMI];// per il controllo e assegnazione punti
 struct playerSTR iplayer[2];
 struct lemmaSTR zona_appoggio[LZA];
 
-char gFILE_VOCABOLARIO[32];
+char gFILE_VOCABOLARIO[MAX_PATH];
 char gFILE_BILETT[32];//oslo
 char szMsg[4092];
 char parola_originale[36];
@@ -96,5 +96,7 @@ int eliminate[6]={0,0,0,0,0,0};
 
 HBRUSH hdialogbrush;//SFONDO DEL DIALOGO
 BOOL flag_salvato=TRUE;
+#ifndef TROMSOE
 char MemoriaBiletterali[16000];
+#endif
 struct gperpend gperp;

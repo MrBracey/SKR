@@ -25,8 +25,8 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,7,1,0
- PRODUCTVERSION 1,7,1,0
+ FILEVERSION 1,7,2,0
+ PRODUCTVERSION 1,7,2,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -44,12 +44,12 @@ BEGIN
             VALUE "Comments", "word puzzle game player vs computer"
             VALUE "CompanyName", "Iacopo Braccesi"
             VALUE "FileDescription", "iabra@hotmail.com"
-            VALUE "FileVersion", "1, 7, 1, 0"
+            VALUE "FileVersion", "1.7.2.0"
             VALUE "InternalName", "scarabit"
             VALUE "LegalCopyright", "2008"
             VALUE "OriginalFilename", "scarabit.exe"
             VALUE "ProductName", "ScaraBIT"
-            VALUE "ProductVersion", "1, 7, 1, 0"
+            VALUE "ProductVersion", "1.7.2.0"
         END
     END
     BLOCK "VarFileInfo"

@@ -1,6 +1,6 @@
 DWORD WINAPI SuperComputer(LPVOID lpParameter);
 
-extern char gFILE_VOCABOLARIO[32];
+extern char gFILE_VOCABOLARIO[];
 extern struct saccoSTR sacco[];
 extern struct saccoSTR Info_Lettera[26+1];
 extern struct tesseraSTR tessera[2][8];

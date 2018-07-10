@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <time.h>
 #define FIATA20 Sleep(10);//15 fino al 15/2/2009
-//#define FIATA50 Sleep(50);//20
-//#define MOSTRA_ELIM
 
 extern HANDLE			hDataHeap;
 extern HWND			ghWndToolbarDlg;
@@ -28,15 +26,15 @@ extern BYTE salva_flag_1t;
 extern BYTE salva_flag_77;
 extern int gMaxPuntiHelp;
 extern int iDIMTESSERA;
-//extern BYTE flag_abil_Grect;ankara
 extern RECT Grect;
 extern char gFILE_BILETT[32];//oslo
 extern int punticalc;//falluja
 extern int Machine_Thinking; //okinawa
 extern int eliminate[6];
+#ifndef TROMSOE
 extern char MemoriaBiletterali[16000];
+#endif
 extern struct gperpend gperp;
-//char provincia[NUM_PROVINCIE][3]; //OSLO//[3]={"ag","al","an","ao","ap","aq","ar","at","av","ba","bg","bl","bn","bo","br","bs","bz","ca","cb","ce","ch","cl","cn","co","cr","cs","ct","cz","en","fe","fg","fi","fo","fr","ge","go","gr","im","is","le","li","lt","lu","ma","mc","me","mi","mn","mo","ms","mt","na","no","nu","or","pa","pc","pd","pe","pg","pi","pn","po","pr","ps","pt","pv","pz","ra","rc","re","rg","ri","rm","rn","ro","sa","si","so","sp","sr","ss","sv","ta","te","tn","to","tp","tr","ts","tv","ud","va","vc","ve","vi","vr","vt"};
 int oldvalue=0;
 
 //CERCA CON WILDCARDS
@@ -52,7 +50,6 @@ int ConvertWildcards(char*chiara,char*standard)
 
 
 	*/
-//	int l=strlen(chiara);
 	if(*chiara=='*')
 	{
 		chiara++;
@@ -207,75 +204,6 @@ int FindKeys(char *psk)
 	}
 return 0;
 }
-#ifndef TUNISI
-//MEMORIZZA IL VOCABOLARIO ITALIANO
-BOOL HeapInit()
-{
-//	PROCESS_HEAP_ENTRY info;
-	        SYSTEM_INFO sysInfo;
-	unsigned long	Vsize;
- HANDLE hVocabolario;
- DWORD Bread;
- int mul;
- //void* base;
-//OVERLAPPED Overlap;
-//char buffer[33];
-
-DWORD dwsize;
-hVocabolario=CreateFile(
-		   gFILE_VOCABOLARIO,
-		   GENERIC_READ,
-		   FILE_SHARE_READ,
-		   NULL,
-		   OPEN_EXISTING,
-		   NULL,
-			NULL	);
-
-	if(hVocabolario==INVALID_HANDLE_VALUE)
-	{
-		ErrorReporter("Manca Vocabolario");
-		return FALSE;
-	}
-
-	if(dwsize=GetFileSize (hVocabolario,&Vsize)==INVALID_FILE_SIZE)
-		ErrorReporter("size");
-
-	Vsize=0x6FFFF;
-    GetSystemInfo(&sysInfo);
-	mul=Vsize/sysInfo.dwPageSize;
-	Vsize=sysInfo.dwPageSize * mul;
-        hDataHeap = HeapCreate(HEAP_NO_SERIALIZE,Vsize,Vsize);//647100 MAX DIM VOVABOLARIO
-        if (hDataHeap == NULL) {
-            ErrorReporter("HeapCreate (Data Heap)");
-			return FALSE;
-		}
-	Vsize-=sysInfo.dwPageSize;
-	if(HeapValidate(hDataHeap,HEAP_NO_SERIALIZE,NULL)==FALSE)
-		ErrorReporter("HeapValidate");
-
-	hBaseHeap=HeapAlloc(hDataHeap,HEAP_GENERATE_EXCEPTIONS|HEAP_NO_SERIALIZE|HEAP_ZERO_MEMORY,Vsize);
-
-	if(ReadFile(hVocabolario,hBaseHeap,Vsize,&Bread,NULL)==FALSE)
-			ErrorReporter("REadFile");
-
-	if(HeapValidate(hDataHeap,HEAP_NO_SERIALIZE,NULL)==FALSE)
-		ErrorReporter("HeapValidate");
-
-	if(Bread>Vsize)
-		ErrorReporter("HeapCreate (VOC troppo lungo)");
-
-	CloseHandle(hVocabolario);
-//	HeapWalk(hDataHeap,&info);
-//	HeapCompact(hDataHeap,HEAP_NO_SERIALIZE);
-	//adesso ho tutto il vocabolario in memoria..... !!!!!!
-
-#ifndef TROMSOE
-	MemGrBil();//oslo
-#endif
-
-	return TRUE;
-}
-#endif
 int Check_in_Diz(struct lemmaSTR *lem,int nlem)
 {
 	int n;
@@ -441,9 +369,7 @@ int MettiUnaLetteraACaso()
 
 int AggiungiAlDizionario(char *lemma)
 {
- HANDLE hVocabolario;
-// DWORD Bread;
-//OVERLAPPED Overlap;
+HANDLE hVocabolario;
 char buffer[33];
 #ifdef KRYPTER
 maincrypt(DEKRYPT);
@@ -460,7 +386,9 @@ hVocabolario=CreateFile(
 
 	if(hVocabolario==INVALID_HANDLE_VALUE)
 	{
-		ErrorReporter("Manca Vocabolario");
+		char beer[MAX_PATH];
+		sprintf(beer, "Errore %d durante l'accesso in scrittura su %s.", GetLastError(), gFILE_VOCABOLARIO);
+		ErrorReporter(beer);
 		return FALSE;
 	}
 	SetFilePointer(hVocabolario,0,0,FILE_END);
@@ -1200,12 +1128,9 @@ BOOL EseguiSostituzione(char *por,char *pnu)
 	int inizio_parola=0;
 	int fine_parola=0;
 	char buffer[36];
-//	char resto[36];
-//  SYSTEM_INFO sysInfo;
+
 	unsigned long	Vsize;
- HANDLE hVocabolario,hNuovo;
-// DWORD Bread;
-// int mul;
+	HANDLE hVocabolario,hNuovo;
 
 DWORD dwsize;
 hVocabolario=CreateFile(
@@ -1376,7 +1301,6 @@ if(!*por)//inserisci
 	if(!HeapFree(hDataHeap,NULL,NULL))
 		ErrorReporter("dealloc heap");
 	HeapInit();
-//		MessageBox(GetActiveWindow(),"Vocabolario aggiornato","",MB_ICONINFORMATION);
 		SetWindowText(ghWndToolbarDlg,"Vocabolario aggiornato");
 		return TRUE;
 
@@ -1405,9 +1329,6 @@ if(!*por)//inserisci
 
 		strtok(buffer,"\r\n");
 
-		//strcpy(resto,strtok(NULL,""));
-	//OutputDebugString(buffer);
-	//OutputDebugString(",");
 
 		int z=dwsize-2-strlen(buffer);
 
@@ -1452,7 +1373,7 @@ if(!HeapFree(hDataHeap,NULL,NULL))
 			ErrorReporter("dealloc heap");
 
 HeapInit();
-//	MessageBox(GetActiveWindow(),"Vocabolario aggiornato","",MB_ICONINFORMATION);
+
 SetWindowText(ghWndToolbarDlg,"Vocabolario aggiornato");
 DeleteFile("temp.voc");
 }
@@ -1755,13 +1676,10 @@ IBL3:;
 					{
 
 						xflag=0;//ROMA
+
 						if(Is_Biletterale(parola))
 							xflag=1;
-						/*
-						for(int r=0;r<NUM_PROVINCIE;r++)
-							if(!strcmp(parola,provincia[r]))
-								xflag=1;
-						*/
+
 
 						if(xflag==3||!xflag)
 						{
@@ -1878,7 +1796,7 @@ IBL4:;
 }
 
 #endif
-
+#ifndef TROMSOE
 /* FINE SCROLL VERTICALE*/
 int MemGrBil()//OSLO
 {
@@ -1962,7 +1880,7 @@ int InserisciBiletterale(char* bi)//calcutta
 	MemGrBil();//memorizza il file
 	return TRUE;
 }
-
+#endif
 
 //BOOL ControLL(BYTE hv,int y,int x)
 BOOL ControLLN(struct lemmaSTR* pappo)
@@ -2765,9 +2683,7 @@ BOOL HeapInit()
  DWORD Bread;
  DWORD Bread2;
  int mul;
- //void* base;
-//OVERLAPPED Overlap;
-//char buffer[33];
+
 
 DWORD dwsize;
 DWORD dwsizeB;
@@ -2786,15 +2702,14 @@ hVocabolario=CreateFile(
 		return FALSE;
 	}
 
+
 	if(dwsize=GetFileSize (hVocabolario,&Vsize)==INVALID_FILE_SIZE)
 		ErrorReporter("size");
 
-
-#ifdef TROMSOE
 	hVocabolarioBilet = INVALID_HANDLE_VALUE;
-	goto mavai;
-#endif
 
+
+#ifndef TROMSOE
 	hVocabolarioBilet=CreateFile(
 		   "2lt.voc",
 		   GENERIC_READ,
@@ -2804,7 +2719,7 @@ hVocabolario=CreateFile(
 		   NULL,
 			NULL	);
 
-mavai:;
+
 
 	if(hVocabolarioBilet!=INVALID_HANDLE_VALUE)
 	{
@@ -2814,6 +2729,8 @@ mavai:;
 	}
 	
 	CloseHandle(hVocabolarioBilet);
+#endif
+
 	Vsize=0x6FFFF;
     GetSystemInfo(&sysInfo);
 	mul=Vsize/sysInfo.dwPageSize;
@@ -2830,6 +2747,7 @@ mavai:;
 	hBaseHeap=HeapAlloc(hDataHeap,
 		HEAP_GENERATE_EXCEPTIONS|HEAP_NO_SERIALIZE|HEAP_ZERO_MEMORY,
 		Vsize);
+
 
 	Bread=0;
 	if(hVocabolarioBilet!=INVALID_HANDLE_VALUE)
@@ -2850,8 +2768,6 @@ mavai:;
 		ErrorReporter("HeapCreate (VOC troppo lungo)");
 
 	CloseHandle(hVocabolario);
-//	HeapWalk(hDataHeap,&info);
-//	HeapCompact(hDataHeap,HEAP_NO_SERIALIZE);
 	//adesso ho tutto il vocabolario in memoria..... !!!!!!
 
 #ifndef TROMSOE
@@ -2863,8 +2779,11 @@ mavai:;
 
 
 #endif
+
+
 BOOL Is_Biletterale(char*parola)
 {
+#ifndef TROMSOE
 	char* p=MemoriaBiletterali;
 	while(p && *p)
 	{
@@ -2876,8 +2795,10 @@ BOOL Is_Biletterale(char*parola)
 			return TRUE;
 		p+=4;
 	}
+#endif
 	return FALSE;
 }
+
 
 int AggiungiMessaggio(HWND hdlg,char* avviso)
 {

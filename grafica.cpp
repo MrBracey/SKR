@@ -27,13 +27,10 @@ int ShowBoard()
 	HDC hdc,memdc;
 	HGDIOBJ gdi;//jakarta
 
-		//hdc=CreateDC("DISPLAY",NULL,NULL,NULL);
 	hdc=GetDC(ghWndToolbarDlg);	
 	memdc=CreateCompatibleDC(hdc);
 	hbitmap=LoadBitmap(ghInst,MAKEINTRESOURCE(IDB_U));//TAVOLAGIOCO));CATANIA
 	gdi=SelectObject(memdc,hbitmap);
-//	if (!BitBlt(hdc, BASEX,BASEY,DIMBOARD,DIMBOARD,memdc,0,0,SRCCOPY)) 
-//		valret=1;
 
 	if (!StretchBlt(hdc, //cefalu
 		iBASEX,iBASEY,iDIMBOARD,iDIMBOARD,memdc,0,0,DIMBOARD,DIMBOARD,SRCCOPY)) 
@@ -46,17 +43,7 @@ int ShowBoard()
 	return valret;
 }
 int ShowLogo()
-{/*
-	HANDLE hbitmap;
-	HDC hdc,memdc;
-
-		//hdc=CreateDC("DISPLAY",NULL,NULL,NULL);
-	hdc=GetDC(ghWndToolbarDlg);	
-	memdc=CreateCompatibleDC(hdc);
-	hbitmap=LoadBitmap(ghInst,MAKEINTRESOURCE(IDB_TAVOLAGIOCO));
-	SelectObject(memdc,hbitmap);
-	if (!BitBlt(hdc, BASEX+3,BASEY+22,DIMBOARD,DIMBOARD,memdc,0,0,SRCCOPY)) 
-		return 1;*/
+{
 	return 0;
 }
 int SelezionaTessera(BYTE player,int selection)
@@ -100,15 +87,8 @@ OutputDebugString("ST-");
 
 	hbitmap=LoadBitmap(ghInst,MAKEINTRESOURCE(tessera[player][selection].s.bitmap));
 	gdi=SelectObject(memdc,hbitmap);
-/*
-	if (!BitBlt(hdc, 
-               tessera[player][selection].x,
-			   tessera[player][selection].y, 
-               DIMTESSERA,DIMTESSERA, 
-              memdc, 
-               0,0, 
-               op)) 
-*/				if (!StretchBlt(hdc, //cefalu
+
+	if (!StretchBlt(hdc, //cefalu
 					   tessera[player][selection].x,
 					   tessera[player][selection].y, 
 					   iDIMTESSERA,iDIMTESSERA, 
@@ -242,7 +222,7 @@ OutputDebugString("DPL-");
 
 		casa[icasa.y][icasa.x].flag=(plr?TEMPORANEA_PL2:TEMPORANEA_PL1);//plr+1;
 	}
-	//DeleteObject(hbitmap);//parigi
+	
 	ReleaseDC(ghWndToolbarDlg,hdc);
 	DeleteDC(memdc);
 
@@ -263,23 +243,15 @@ OutputDebugString("CT-");
 	memdc=CreateCompatibleDC(hdc);
 	hbitmap=LoadBitmap(ghInst,MAKEINTRESOURCE(IDB_SCARABEO));
 	gdi=SelectObject(memdc,hbitmap);
-/*
-	if (!BitBlt(hdc, 
-               tessera[plr][index].x,
-			   tessera[plr][index].y,
-               DIMTESSERA,DIMTESSERA, 
-              memdc, 
-               0,0, 
-               SRCCOPY)) 
-*/
-				if (!StretchBlt(hdc, //cefalu
-					   tessera[plr][index].x,
-					   tessera[plr][index].y, 
-					   iDIMTESSERA,iDIMTESSERA, 
-					  memdc, 
-					   0,0, 
-					   DIMTESSERA,DIMTESSERA,
-					   SRCCOPY)) 
+
+	if (!StretchBlt(hdc, //cefalu
+			tessera[plr][index].x,
+			tessera[plr][index].y, 
+			iDIMTESSERA,iDIMTESSERA, 
+			memdc, 
+			0,0, 
+			DIMTESSERA,DIMTESSERA,
+			SRCCOPY)) 
 
 		valret=1;
 	DeleteObject(hbitmap);
@@ -312,7 +284,6 @@ int MostraCase()//JAKARTA cerca problema GDI: troppi oggetti allocati schiantano
 		&ps // paint information
 		);	
 
-	//HDC hdc=GetDC(ghWndToolbarDlg);	
 
 	memdc=CreateCompatibleDC(hdc);
 
@@ -434,42 +405,12 @@ void AggiornaFinestra()
 {
 	RECT rect;
 		OutputDebugString("AF-");
-		//ShowBoard();
 		GetClientRect(ghWndToolbarDlg,&rect);
-		//InvalidateRect(ghWndToolbarDlg,&rect,FALSE);
-		//InvalidateRect(ghWndToolbarDlg,&rect,TRUE);
-		//UpdateWindow(ghWndToolbarDlg);
-		//GetWindowRect(ghWndToolbarDlg,&rect);
 		InvalidateRect(ghWndToolbarDlg,&rect,TRUE);
 }
 
-//mostra punteggi dei giocatori
 void Mostra_punti(HWND hdlg)//jakarta corregge 
 {
-/*corinto comm
-//	HDC hdc,memdc;
-	char appo[32];
-//	RECT rect;
-				OutputDebugString("MP-");
-				sprintf(appo,"%d",iplayer[PLAYER1].punti<1000?iplayer[PLAYER1].punti:999);
-				SetDlgItemText(hdlg,IDC_PUNTI1,appo);
-				sprintf(appo,"%d",iplayer[PLAYER2].punti<1000?iplayer[PLAYER2].punti:999);
-				SetDlgItemText(hdlg,IDC_PUNTI2,appo);	
-				sprintf(appo,"%d",NUM_TESSERE-psacco);
-				SetDlgItemText(hdlg,IDC_LEFT,appo);	
-				
-*/				
-				/*
-		GetClientRect(hdlg,&rect);
-		rect.left=500;
-		rect.bottom=200;
-		InvalidateRect(hdlg,&rect,FALSE);
-		UpdateWindow(hdlg);
-*//*
-		hdc=GetDC(ghWndToolbarDlg);	
-		memdc=CreateCompatibleDC(hdc);
-		TextOut(hdc,600,200,appo,strlen(appo));
-*/
 
 HGDIOBJ gdi;//jAKARTA
 HDC hdc,memdc;
@@ -481,7 +422,6 @@ OutputDebugString("MP-");
 	hdc=GetDC(ghWndToolbarDlg);	
 	memdc=CreateCompatibleDC(hdc);
 
-//		//BitBlt(hdc,XMAN1+n*DISTACCO,YPUNTO,DIMXCIFRA,DIMYCIFRA, memdc, 0,0, SRCCOPY);
 	sprintf(appo,"%3d",iplayer[PLAYER1].punti);
 	for(n=0;n<3;n++)
 	{
@@ -528,7 +468,6 @@ OutputDebugString("MP-");
 	}
 	
 //computer..
-//		BitBlt(hdc,XMAC1+n*DISTACCO,YPUNTO,DIMXCIFRA,DIMYCIFRA, memdc, 0,0, SRCCOPY);
 	sprintf(appo,"%3d",iplayer[PLAYER2].punti);
 	for(n=0;n<3;n++)
 	{
@@ -718,11 +657,6 @@ OutputDebugString("MTD-");
 			op[PLAYER1]=SRCCOPY_D;
 			op[PLAYER2]=SRCCOPY;
 		}	
-		/*
-		else if (FaseHelp==HELP_IS_ON && flag_mostra_tessere){
-			op[PLAYER1]=NOTSRCCOPY;
-			op[PLAYER2]=SRCCOPY;
-		}*/	
 		for(n=0;n<8;n++)
 		{
 			tessera[pl][n].x=(iXTESSERA+pl*DISTANZA_TESSERE)+(n*(iDIMTESSERA-1));
@@ -819,11 +753,6 @@ int Mostra_tessere(int FaseHelp)//okkaido
 			op[PLAYER1]=SRCCOPY_D;
 			op[PLAYER2]=SRCCOPY;
 		}	
-		/*
-		else if (FaseHelp==HELP_IS_ON && flag_mostra_tessere){
-			op[PLAYER1]=NOTSRCCOPY;
-			op[PLAYER2]=SRCCOPY;
-		}*/	
 		for(n=0;n<8;n++)
 		{
 			tessera[pl][n].x=(iXTESSERA+pl*DISTANZA_TESSERE)+(n*(iDIMTESSERA-1));
@@ -933,39 +862,3 @@ void GetRapportoXY(float*rx,float*ry)
 	OutputDebugString(dsr);
 }
 
-/*
-void faite()
-{
-	OutputDebugString("FT-");
-	int valret=0;
-	HANDLE hbitmap;
-	HDC hdc,memdc;
-	HGDIOBJ gdi;//jakarta
-	int x,y;
-
-		//hdc=CreateDC("DISPLAY",NULL,NULL,NULL);
-	hdc=GetDC(ghWndToolbarDlg);	
-	memdc=CreateCompatibleDC(hdc);
-
-for(y=0;y<15;y++)
-	for(x=0;x<15;x++)
-	{
-
-		hbitmap=LoadBitmap(ghInst,MAKEINTRESOURCE(casa[y][x].obitmap));
-		gdi=SelectObject(memdc,hbitmap);
-		if (!StretchBlt(hdc, //cefalu
-               casa[y][x].x,
-			   casa[y][x].y,
-               iDIMTESSERA,iDIMTESSERA, 
-              memdc, 
-               0,0,
-			   DIMTESSERA,DIMTESSERA, 
-               SRCCOPY));
-		DeleteObject(hbitmap);//parigi jakarta corregge
-	}
-	DeleteObject(gdi);
-	ReleaseDC(ghWndToolbarDlg,hdc);
-	DeleteDC(memdc);
-
-}
-*/

@@ -276,6 +276,12 @@ int poipoipoi(
 #define FILE_VOCABOLARIO_EN	"scarabeo.voc.en"
 #define FILE_CRYPT			"scarabok.voc"
 #define FILE_BILET			"2LT.voc"
+#define SAVE_FILE			"C:\\Programdata\\Scarabit\\Scarabit.sav"
+#define SAVE_TMP			"C:\\Programdata\\Scarabit\\Scarabit.tmp"
+
+
+
+
 
 #define RITIRA_INSERIMENTO	2727
 
@@ -875,9 +881,7 @@ void DoPerp(int *totpar);
 
 #define SEPARATURNI "------------------------------------------\r\n"
 
-//#define SEPARATURNI_C "----------- MACCHINA -----------\r\n"
-//efine SEPARATURNI_U "PREGO E' IL SUO TURNO\r\n"
-//#define SEPARATURNI_U "-------------- UOMO  --------------\r\n"
+
 
 
 #endif//VAI_A_FARTI_FOTTERE

@@ -1,10 +1,12 @@
 #include "windows.h"
+
 #include "Windowsx.h"
 #include "resource.h"
 #include "scarabeo.h"
 #include "global.h"
 #include "supercomputer.h"
 #include <stdio.h>
+
 
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -28,62 +30,16 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	
 	HMENU hmenu;
 	hmenu=LoadMenu(ghInst,MAKEINTRESOURCE(IDR_MENU1));
-	//		SetMenu(ghWndToolbarDlg,hmenu);
-	//SetWindow
 
 	HACCEL hcc;
-	
 	hcc=LoadAccelerators(ghInst,MAKEINTRESOURCE(IDR_ACCELERATOR1));
-	//fine
 
-
-	
  
-// Create a standard hourglass cursor. 
- 
-	hCurs1 = LoadCursor(NULL, IDC_CROSS);
+	// Create a standard hourglass cursor. 
+ 	hCurs1 = LoadCursor(NULL, IDC_CROSS);
 	
 	
-	// Get and dispatch messages until a WM_QUIT message is 
-    // received. 
-#ifdef PERF_TEST
-//	maincrypt(DEKRYPT);    
-LARGE_INTEGER liPc,liFq,liPc2;
-unsigned long ulDelta;
-	char deb[128];
-double dbl;
-
-	
-
-	QueryPerformanceFrequency ( &liFq);
-	unsigned long ulf=(unsigned long)liFq.QuadPart;
-	
-	for(int g=0;g<10;g++)
-	{
-	QueryPerformanceCounter(&liPc);
-	//fai qualcosa di sinistra..:!
-	
-	//int t1=GetTickCount();
-	//if((g%2))
-		//int t2=GetTickCount();
-		//OutputDebugString("sono nel tempo!\n");
-
-
-	//ecco il tempo
-	QueryPerformanceCounter(&liPc2);
-	ulDelta=(unsigned long)liPc2.QuadPart-(unsigned long)liPc.QuadPart;
-	dbl=(double)ulDelta/(double)ulf;
-
-	//sprintf(deb,"t1=%d t2=%d",t1,t2);
-	//OutputDebugString(deb);
-
-	
-	sprintf(deb,"Il test è durato %f msec (%lu cicli)",dbl*1000,ulDelta);
-	OutputDebugString(deb);
-	OutputDebugString("\n");
-	}
-#endif 
-hdialogbrush=CreateSolidBrush(RGB(235,235,235));//SFONDO DEL DIALOGO
+	hdialogbrush=CreateSolidBrush(RGB(235,235,235));//SFONDO DEL DIALOGO
 	while (GetMessage(&msg, NULL, 0, 0)) 
 	{
         if (!TranslateAccelerator( ghwndMain, NULL, &msg )) 
@@ -93,10 +49,7 @@ hdialogbrush=CreateSolidBrush(RGB(235,235,235));//SFONDO DEL DIALOGO
         }
     }
 
-		  
-		  
-
-  DeleteObject(hdialogbrush);
+	DeleteObject(hdialogbrush);
    if(!HeapFree(hDataHeap,NULL,NULL))
 		ErrorReporter("dealloc heap");
 
@@ -116,81 +69,54 @@ BOOL CALLBACK KeyProc(HWND hdlg, UINT uMessage, WPARAM wParam, LPARAM lparam)
 	static char mybuffer[DIM_BUFFER_RICERCA];
 	char avviso[80];
 	static int ckey=0;
-	
-
-//HMENU hmenu;
-//SYSTEMTIME syt;
-	//	RECT rect;
 	POINT punto;
 	POINT Cpoint;
 	int selection;
-//	 HDC hdc;
-	 int n;
-	 int riga;
-char *pc;
-int i;
-			HWND hwEdit;
-			POINT point;
-			RECT rect;
-			char bufedit[4096*2];//16384];
-			//char lbuf[32];
-			int erro;
-int w,wcnt;
-int z;
-struct lemmaSTR lms;
+	int n;
+	int riga;
+	char *pc;
+	int i;
+	HWND hwEdit;
+	POINT point;
+	RECT rect;
+	char bufedit[4096*2];
+	int erro;
+	int w,wcnt;
+	int z;
+	struct lemmaSTR lms;
 
     switch(uMessage)
     {
-/*
-	
-		lascia 16 gdi allocati, anche senza chiamare nessuna
-		di queste procedure, quindi e' il dialogo stesso che
-		le lascia
-	*/
 
 	case WM_CTLCOLORDLG:          //  Set background color for dialog box and
 		  case WM_CTLCOLORLISTBOX:     //  listbox to the current button face color
 		  case WM_CTLCOLORSTATIC:              //  Don't forget the static control!
-		  //hbrush=CreateSolidBrush(RGB(240,242,238));//SFONDO DEL DIALOGO
-
 		  return (INT_PTR)hdialogbrush;
-
 		 break;
-
-
 	
 	
 	case WM_CLOSE:
-
 			break;
 	case WM_PAINT:
 		MostraCase();
 		Mostra_tessere_davvero();
 		Mostra_punti(hdlg);
 		Mostra_sacco();
-
-
 		break;
+
 	case WM_INITDIALOG:     // init controls
 		gselection=NOT_SELECTED;
-//		gIndexBoard=IDB_TG_PASSA;
 		memset(buffer,0,sizeof(buffer));
 		timercount=0;
-		
-		
-		ParlaS(
-			"#v0sasasasas"
-		);
-
 		
 		if(
 		!
 		LeggiVocabolario()
 		)
 			exit(180564);
-		
-		
+	
 		break;
+
 		case WM_RBUTTONDOWN:
 			GetCursorPos(&punto);
 			ScreenToClient(ghWndToolbarDlg, &punto); 
@@ -212,12 +138,7 @@ struct lemmaSTR lms;
 
 		case WM_MOUSEMOVE:
 			if(gselection!=NOT_SELECTED)
-			{
-			SetCursor(hCurs1);
-				//GetCursorPos(&punto);
-			//ScreenToClient(ghWndToolbarDlg, &punto); 
-			
-			}
+				SetCursor(hCurs1);
 			break;
 
 	case WM_LBUTTONUP://drag and drop
@@ -242,7 +163,6 @@ struct lemmaSTR lms;
 					}
 				
 	break;//2013 con questo permette di alzare il mouse
-	//#define BOMB
 
 	case WM_LBUTTONDOWN:
 		GetCursorPos(&punto);
@@ -361,16 +281,11 @@ simuladown:;
 			{
 				ShowWindow(GetDlgItem(ghWndToolbarDlg,IDC_DEMOX),SW_HIDE);
 				SetWindowText(ghWndToolbarDlg,"Demo in esecuzione");
-				//MessageBox(ghwndMain,"Demo ON","",MB_ICONINFORMATION);
-				//Beep(400,100);
-				//flag_mostra_tessere =TRUE;
-//				flag_mostra_idee =TRUE;
 				if(hThreadSC==INVALID_HANDLE_VALUE)
 					SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_START,0L);
 			}
 			else
 				SetWindowText(ghWndToolbarDlg,"");
-			//	MessageBox(ghwndMain,"Demo OFF","",MB_ICONINFORMATION);
 		break;	
 		case IDC_RUOTA:
 			if(Machine_Thinking) break;//okinawa
@@ -414,11 +329,6 @@ simuladown:;
 
 			break;
 		case IDC_FAI_SILENZIO:// = PARLA!!
-			/*
-BST_CHECKED Button is checked. 
-BST_INDETERMINATE Button is grayed, indicating an indeterminate state (applies only if the button has the BS_3STATE or BS_AUTO3STATE style). 
-BST_UNCHECKED 
-			*/
 			flag_FAI_SILENZIO =IsDlgButtonChecked(hdlg,IDC_FAI_SILENZIO);
 			
 			break;
@@ -476,8 +386,6 @@ BST_UNCHECKED
 		case IDC_EDIT2:
 #define RIGHE_NELLA_EDIT 8		
 
-//			if(Flag_edit_diz==FALSE)
-//				break;
 			
 			if(Machine_Thinking||Global_Demox)
 				break;//2012
@@ -502,13 +410,7 @@ BST_UNCHECKED
 			if(!GetScrollInfo(hwEdit,SB_VERT,&si))
 				DWORD err=GetLastError();
 
-
-
-
-			
-//			sprintf(avviso,"BOX:T%d B%d L%d R%d PUNTO:x=%d,y=%d\n",rect.top,rect.bottom,rect.left,rect.right,point.x,point.y);
-//			OutputDebugString(avviso);
-			
+		
 			riga=(rect.bottom-rect.top)/RIGHE_NELLA_EDIT;//altezza di una riga di testo
 			point.y-=rect.top;
 			riga=point.y/riga;
@@ -522,7 +424,6 @@ BST_UNCHECKED
 				if(bufedit[w]=='\r')
 					wcnt++;
 			}
-//#pragma message ("<=")
 			if(riga<wcnt)//venezia RIGHE_NELLA_EDIT)
 			{
 				strtok(bufedit,"\r\n");
@@ -541,7 +442,6 @@ BST_UNCHECKED
 						pc++;
 					strtok(pc," ");
 					*(pc+strlen(pc)-1)='*';
-					//SetDlgItemText(hdlg,IDC_EDIT1,pc);
 					SetDlgItemText(hdlg, IDC_COMBO_SEARCH,pc);
 					AggiornaFinestra();
 					
@@ -554,15 +454,10 @@ BST_UNCHECKED
 				sprintf(avviso,"%s\n",pc);
 				OutputDebugString(avviso);
 				strcpy(parola_originale,pc);
-
-				
-				//SendMessage(gHwndMoDiz,WM_COMMAND,WM_USER+567,(LPARAM)parola_originale);//VENEZIA
 				Flag_edit_in_corso=TRUE;
 				
 				//RICHIAMATA DA click su lista
 				int k=DialogBoxParam(ghInst,MAKEINTRESOURCE(IDD_DIALOG5),ghWndToolbarDlg,(DLGPROC) MoDizProc,(LPARAM)parola_originale);	
-				//SendMessage(gHwndMoDiz,WM_COMMAND,WM_USER+567,(LPARAM)parola_originale);//VENEZIA
-				//CreateDialog(ghInst,MAKEINTRESOURCE(IDD_DIALOG5),ghWndToolbarDlg,(DLGPROC) MoDizProc);
 				Flag_edit_in_corso=FALSE;
 			}
 			else
@@ -570,32 +465,13 @@ BST_UNCHECKED
 				sprintf(avviso,"Nessuna o troppe parole in lista\n");
 				OutputDebugString(avviso);
 			}
-			//SetDlgItemText(ghWndToolbarDlg,IDC_EDIT_DIZ,"Modifica dizionario");
-			//Flag_edit_diz=FALSE;
-			
-//			SendDlgItemMessage(ghWndToolbarDlg,IDC_EDIT2,EM_SETREADONLY, TRUE,0);
 			break;
-//#endif
 		case IDC_EDIT_DIZ:
-///* glasgow scomm
 				Flag_edit_in_corso=TRUE;
-				//int k=DialogBox(ghInst,MAKEINTRESOURCE(IDD_DIALOG5),ghWndToolbarDlg,(DLGPROC) MoDizProc);	
-				
-				//RICHIAMATA DA MODIFICA DIZIONARIO.DEF NIENTE
 				DialogBoxParam(ghInst,MAKEINTRESOURCE(IDD_DIALOG5),ghWndToolbarDlg,(DLGPROC) MoDizProc,(LPARAM)"");	
 				Flag_edit_in_corso=FALSE;
 
 			break;
-/* corinto ripulitura
-		case IDC_DEMO:
-		//	flag_mostra_idee =flag_mostra_idee==1?0:1;
-			if(IsDlgButtonChecked(hdlg,IDC_DEMO))
-				Flag_help_computer=TRUE;
-			else
-				Flag_help_computer=FALSE;
-				
-			break;
-*/
 		case IDC_START:
 	
 			if(Machine_Thinking) break;//okinawa
@@ -605,7 +481,6 @@ BST_UNCHECKED
 				CloseHandle(hThreadSC);
 				hThreadSC=INVALID_HANDLE_VALUE;
 				Global_Demox=(FALSE);
-		//		break;//OKINAWA
 			}
 
 
@@ -644,17 +519,10 @@ BST_UNCHECKED
 reask:;	
 			if(Global_Demox)
 				player=PLAYER2;
-//			flag_prima_tessera=TRUE; //kyoto
 			if(player==PLAYER2)
 			{
-
-//santiago 
 				if(!Global_Demox)//check_validita)
 				{
-					//char bugg[40];
-					//sprintf(bugg,"#r%dHo il permesso di iniziare?",rate--);
-					//ParlaS(bugg);
-					//ParlaS("posso cominciare io?");
 					int wen=MessageBox(ghWndToolbarDlg,"Ho il permesso di iniziare?","",MB_YESNO|MB_ICONINFORMATION);
 					if(wen==IDNO) 
 					{
@@ -666,18 +534,8 @@ reask:;
 				AggiornaFinestra();
 				SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);//hammerfest
 
-				
-				//else
-//fine santiago
-				//{
-				//salva(1);
-				//int z=MessageBox(hdlg,"Comincio IO","",MB_YESNO);
-				//if(z==IDNO)
-				//	break;
-				//SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
-				//}
 			}
-			else// if(!Global_Demox)
+			else
 			{
 				AggiornaFinestra();
 				ParlaS("Prego, è il suo turno");
@@ -687,7 +545,7 @@ reask:;
 					sprintf(msg,SEPARATURNI);//_U);
 					AggiungiMessaggio(ghWndToolbarDlg,msg);
 			}
-//bergamo
+
 			break;
 		case IDC_RIFIUTA:
 			if(Machine_Thinking) break;//okinawa
@@ -705,9 +563,6 @@ reask:;
 				AggiornaFinestra();
 				SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
 			}
-			//else 
-				//MessageBox(hdlg,"Niente da rifiutare","",MB_ICONINFORMATION);
-			//	SetWindowText(ghWndToolbarDlg,"Niente da rifiutare");
 		break;
 		case IDC_ANNULLA:
 			if(Machine_Thinking) break;//okinawa
@@ -729,7 +584,6 @@ reask:;
 				{
 					if(n==1)
 						MessageBox(ghWndToolbarDlg,
-						//"La parola inserita deve essere\r\nin contatto con quelle già presenti.",
 						"La disposizione delle lettere non sembra corretta, riprova!",
 						NULL,
 						MB_ICONSTOP
@@ -749,18 +603,12 @@ reask:;
 					break;
 				}
 				
-				//parla uk valore calcolato
 				char mm[20];
 				sprintf(mm,"%d!",lms.value);
 				ParlaS(mm);
 
-			//parola_nuova[strlen(parola_nuova)-1]='*';//glasgow3
-			char ch[32];
-//			sprintf(ch,"%s*",lms.parola);//nervi
-//			SetDlgItemText(ghWndToolbarDlg,IDC_COMBO_SEARCH,ch);//nervi
-					
-//			SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_BUTTON1,0L);//nervi
-				
+				char ch[32];
+		
 				
 				if(!gMaxPuntiHelp)//falluja: non puoi fregare!
 					if(lms.dizionario==IN_DIR)//nassirya
@@ -771,45 +619,9 @@ reask:;
 				AggiungiMessaggio(hdlg,avviso);
 
 
-				//SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
-
 	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
 	OutputDebugString(avviso);
 	AggiornaFinestra();
-
-#if 0
-	{
-	int n=MessageBox(ghWndToolbarDlg,"Inserire questa parola?","###",MB_YESNO|MB_ICONINFORMATION);
-	if(n==IDYES)
-		SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_CONFERMA,0L);//nervi
-		else
-			SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_ANNULLA,0L);//nervi
-}
-#endif
-
-
-
-				/*				Sleep(3000);
-
-				player=player==PLAYER1?PLAYER2:PLAYER1;
-				//#if 0
-				if(Assegna_tessere(player)==-1)
-				{
-					Mostra_tessere();
-					n=MessageBox(ghWndToolbarDlg,"Fine Partita: Salvare lo schema?","###",MB_YESNO|MB_ICONINFORMATION);
-					if(n==IDYES) salva();
-					SendMessage(ghwndMain,WM_CLOSE,NULL,NULL);
-					EndDialog(hdlg, LOWORD(wParam));
-					return TRUE;
-				}
-				AggiornaFinestra();
-//#endif//qui:;
-				player=player==PLAYER1?PLAYER2:PLAYER1;
-
-
-				SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
-				//test!
-*/
   break;
 
 		case IDC_CONFERMA:
@@ -823,25 +635,20 @@ reask:;
 				{
 					if(n==1)
 						MessageBox(ghWndToolbarDlg,
-						//"La parola inserita deve essere\r\nin contatto con quelle già presenti."
 						"La disposizione delle lettere non sembra corretta, riprova!"
 						,NULL,MB_ICONSTOP);
 					SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)IDC_ANNULLA,0L);
-					//goto qui;
 					break;
 				}
 				else if(n==3)//scarabeo
 					lms.value=RITIRA_INSERIMENTO;
 				else
-					//lms.value=ControLL(lms.hv,lms.index.y,lms.index.x);nassirya
 					lms.value=ControLLN(&lms);
 				
 				if(lms.value==RITIRA_INSERIMENTO)
 				{
-					//PlaySound("barking dog.wav",NULL,NULL);
 					Annulla_flag_temporanei(ASSENTE);
 					Annulla_flag_temporanei_T(ASSENTE,PRESENTE);
-					//AggiornaFinestra();
 					break;
 				}
 
@@ -867,32 +674,14 @@ reask:;
 
 
 				Assegna_punti(player,lms.value);
-				//iplayer[player].punti+=lms.value;
 				Annulla_flag_temporanei(PERMANENTE);
 				
 				sprintf(avviso,"Punti: %d\r\n",lms.value);
 				AggiungiMessaggio(hdlg,avviso);	
 
-	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
-	OutputDebugString(avviso);
-				
-
-	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
-	OutputDebugString(avviso);
-
 				AggiornaFinestra();
-
-				
-				
-
-				
-				
-				
-				
+			
 				player=player==PLAYER1?PLAYER2:PLAYER1;
-				
-				
-
 				
 				if(Assegna_tessere(player)==-1)
 				{
@@ -911,13 +700,6 @@ reask:;
 				break;
 
 		case WM_SUPERCOMPUTER://gestione okinawa
-		//	if(hThreadSC!=INVALID_HANDLE_VALUE)//mutex
-			{
-				//AggiornaFinestra();
-		//		ParlaS("procedura annullata..");
-		//		break;
-			}
-
 
 			totalturn++;
 				sprintf(avviso,SEPARATURNI);//_C
@@ -958,35 +740,17 @@ reask:;
 		case IDC_HELPME:
 			if(Machine_Thinking) break;//okinawa
 			if(!psacco)	break;
-				if(f_1st_help==FALSE)//glasgow
-				{
-				//f_1st_help=TRUE;//annulla effetto glasgow: voglio sempre la conferma
-				
-				//char s[160];
-				
-				//sprintf(s,"Il punteggio della tua prossima parola sarà dimezzato\r\na meno che con questa non superi il mio miglior risultato\r\noppure tu resti al di sotto del tuo ultimo CALCOLO (%d)\r\nVuoi continuare?",punticalc);//falluja
-				//n=MessageBox(ghWndToolbarDlg,s,"",MB_YESNO|MB_ICONINFORMATION);
-				//if(n!=IDYES)
-				//	break;
-
-				}
 
 			gMaxPuntiHelp=0;
 			Annulla_flag_temporanei(LIBERA);
 			Annulla_flag_temporanei_T(ASSENTE,PRESENTE);//parigi: solo per player 1!!!!
 			Annulla_flag_temporanei_T(CONSIDERATA,PRESENTE);
-
-			
-	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
-	OutputDebugString(avviso);
-
 	
 			AggiornaFinestra();
 
 			sflag_mostra_idee=flag_mostra_idee;
 			sflag_mostra_tessere=flag_mostra_tessere;
 			flag_mostra_idee=flag_mostra_tessere=TRUE;
-//#define USTICA 031104
 #ifndef USTICA			
 			ScambiaTessere();
 			gFaseHelp=HELP_IS_ON;
@@ -1004,57 +768,36 @@ reask:;
 			if(Machine_Thinking) break;//okinawa
 		if(!psacco)	break;
 		salva(1);
-			//if(Flag_help_computer)
-			//{
 #define tryk
 #ifdef tryk
 		player=PLAYER2;
-//					MessageBeep(MB_OK);
-					Annulla_flag_temporanei(PERMANENTE);					
+		Annulla_flag_temporanei(PERMANENTE);					
 
-	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
-	OutputDebugString(avviso);
 					
-					AggiornaFinestra();
+		AggiornaFinestra();
 
-					if(Assegna_tessere(player)==-1||flag_passo_cpu==TRUE)
-					{
-						//Mostra_tessere();
-						AggiornaFinestra();//LUCCA SCOMM
-						
-						//Mostra_punti(hdlg);
-						
-						MessaggioFinale();
-						SendMessage(ghwndMain,WM_CLOSE,NULL,NULL);// BAHIA COMM//LAPAZ
-					EndDialog(hdlg, LOWORD(wParam));// BAHIA COMM//LAPAZ
-						return TRUE;
-					}
-
-					//Mostra_tessere();
-					//Mostra_punti(hdlg);
-					
+		if(Assegna_tessere(player)==-1||flag_passo_cpu==TRUE)
+		{
+			AggiornaFinestra();//LUCCA SCOMM
+			MessaggioFinale();
+			SendMessage(ghwndMain,WM_CLOSE,NULL,NULL);// BAHIA COMM//LAPAZ
+			EndDialog(hdlg, LOWORD(wParam));// BAHIA COMM//LAPAZ
+			return TRUE;
+		}
 #endif
 
-	sprintf(avviso,"%s %d\n",__FILE__,__LINE__);
-	OutputDebugString(avviso);
 					
-					AggiornaFinestra();//LUCCA SCOMM
+			AggiornaFinestra();//LUCCA SCOMM
 			flag_passo_human=TRUE;//tunisi
-
-				sprintf(avviso,"PASSATO TURNO\r\n");
-				strcat(buffer,avviso);
-				AggiungiMessaggio(hdlg,avviso);
-
+			sprintf(avviso,"PASSATO TURNO\r\n");
+			strcat(buffer,avviso);
+			AggiungiMessaggio(hdlg,avviso);
 			player=PLAYER2;
-				SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
-				
-			//}
-			
-			//if(Flag_help_computer)
-
-//			SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
+			SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_SUPERCOMPUTER,0L);
+		
 
 			break;
+
 		case IDC_AST:
 				GetDlgItemText(hdlg, IDC_COMBO_SEARCH,Kbuffer,sizeof(Kbuffer));
 				strcat(Kbuffer,"*");
@@ -1066,14 +809,6 @@ reask:;
 				strcat(Kbuffer,"?");
 				SetDlgItemText(hdlg, IDC_COMBO_SEARCH,Kbuffer);
 			break;
-/*		case IDC_ICS:
-				if(0==GetDlgItemText(hdlg, IDC_COMBO_SEARCH,Kbuffer,sizeof(Kbuffer)))
-				{
-				strcat(Kbuffer,"-");
-				SetDlgItemText(hdlg, IDC_COMBO_SEARCH,Kbuffer);
-				}
-			break;
-corinto*/
 		case IDC_BUTTON1:
 			{
 		if(Machine_Thinking) break;//okinawa
@@ -1082,18 +817,11 @@ corinto*/
 
 			memset(mybuffer,0,sizeof(mybuffer));
 			memset(buffer,0,sizeof(buffer));
-//		SetDlgItemText(ghWndToolbarDlg,IDC_EDIT2,"");
-		//if (0 != GetDlgItemText(hdlg, IDC_EDIT1,Kbuffer,sizeof(Kbuffer)))
 		if (0 != GetDlgItemText(hdlg, IDC_COMBO_SEARCH,Kbuffer,sizeof(Kbuffer)))
 		
 		{
 			if(SendDlgItemMessage(ghWndToolbarDlg,IDC_COMBO_SEARCH,CB_FINDSTRINGEXACT,-1,(LPARAM)Kbuffer)==CB_ERR)
 				int erro=SendDlgItemMessage(ghWndToolbarDlg,IDC_COMBO_SEARCH,CB_INSERTSTRING,0,(LPARAM)Kbuffer);
-//			if(strcmp(Kbuffer,Kbuffer_o)&&Kbuffer[0]!=0)
-//			{
-
-
-			
 			pc=Kbuffer;
 			*pc=tolower(*pc);//elpaso l'aveva commentata senza dire nulla vaffanculo (mazara)
 			while(*pc++) *pc=tolower(*pc);
@@ -1233,8 +961,6 @@ corinto*/
 
 				strcat(mybuffer,(char*)lparam);
 				strcat(mybuffer,"\r\n");
-				//SetDlgItemText(hdlg,IDC_LIST1,buffer);
-				//SetWindowText(lista,buffer);
 
 		break;
 		
@@ -1281,48 +1007,21 @@ BOOL InitializeApp(HINSTANCE hInst, int nShowCmd)
 	
 	WNDCLASS wc = {0};
 
-
-	//    GlobalInitialize();     // get all global variables initialized to defaults
-/*
-	COLOR_ACTIVEBORDER
-COLOR_ACTIVECAPTION
-COLOR_APPWORKSPACE
-COLOR_BACKGROUND
-COLOR_BTNFACE
-COLOR_BTNSHADOW
-COLOR_BTNTEXT
-COLOR_CAPTIONTEXT
-COLOR_GRAYTEXT
-COLOR_HIGHLIGHT
-COLOR_HIGHLIGHTTEXT
-COLOR_INACTIVEBORDER
-COLOR_INACTIVECAPTION
-COLOR_MENU
-COLOR_MENUTEXT
-COLOR_SCROLLBAR
-COLOR_WINDOW
-COLOR_WINDOWFRAME
-COLOR_WINDOWTEXT 
-	*/
     //
     // setup program's main window class
     //
 	wc.style			= CS_DBLCLKS | CS_HREDRAW | CS_VREDRAW ; 
-	//wc.style			= CS_DBLCLKS | CS_SAVEBITS; 
     wc.lpfnWndProc      = (WNDPROC) MTTTYWndProc;
     wc.hInstance        = hInst;
     wc.hIcon            = LoadIcon(hInst,MAKEINTRESOURCE(IDI_APP));
     wc.hCursor          = LoadCursor(NULL, IDC_ARROW);
     wc.lpszMenuName     = MAKEINTRESOURCE(IDR_MENU1);
-    //wc.hbrBackground    = bru;//(HBRUSH) (COLOR_WINDOW + 1) ;
 	wc.hbrBackground    = (HBRUSH) ( 1) ;
     wc.lpszClassName    = "ScaraClass";
 
     if (!RegisterClass(&wc)) {
-        //GlobalCleanup();
         return FALSE;
     }
-
 
   
     //
@@ -1340,35 +1039,16 @@ COLOR_WINDOWTEXT
         return FALSE;
     }
 
-/* portorico				
-				HDC hdc;
-				hdc=GetWindowDC(
-				  ghwndMain   // handle to window
-				);
-
-	
-	SetBkColor(
-  hdc,           // handle to DC
-  RGB(255,255,255) );  // background color value
-*/
-
-	
 	return TRUE;
 }
 
 
 int WINAPI MTTTYWndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-//LPPOINT punto;
-//int a;
 DWORD err;
-//HCURSOR hCurs1, hCurs2;    // cursor handles 
-//POINT pt;                  // cursor location  
-//RECT rc;                   // client area coordinates 
 static int repeat = 1;     // repeat key counter 
  char Wildcard[80];
  char Apz[80];
-//HDC hdc;
     switch (message) 
     {
 	case WM_CREATE:
@@ -1393,7 +1073,6 @@ static int repeat = 1;     // repeat key counter
 				SetWindowText(ghWndToolbarDlg,"ScaraBIT");		
 
 				GetRapportoXY(&rapportox,&rapportoy);//cefalu2
-				//SendMessage(ghWndToolbarDlg,WM_COMMAND,IDC_START,NULL);
 
 
 			if (
@@ -1407,7 +1086,6 @@ static int repeat = 1;     // repeat key counter
 				InitStructz();
 
 
-//BOMB scommenta				
 					if(ripristina(1))
 			flag_prima_tessera=FALSE;
 				
@@ -1416,32 +1094,7 @@ static int repeat = 1;     // repeat key counter
 					AggiungiMessaggio(ghWndToolbarDlg,msg);
 
 
-				//				MostraCase();
 				AggiornaFinestra();
-//				ShowBoard();
-/*
-				hdc=GetDC(ghWndToolbarDlg);
-SetBkColor(
-  hdc,           // handle to DC
-  RGB(255,0,180)   // background color value
-);
-*/
-
-				//portorico
-				/*
-				HDC hdc;
-				hdc=GetWindowDC(
-				  ghWndToolbarDlg   // handle to window
-				);
-				
-
-					SetBkColor(
-				  hdc,           // handle to DC
-				  RGB(255,255,255)   // background color value
-				);	
-				UpdateWindow(ghWndToolbarDlg);
-				
-				*/
 				break;
 	case WM_DESTROY: 
             //
@@ -1456,24 +1109,19 @@ SetBkColor(
             break;
 
       case WM_COMMAND:       
-          //  CmdDispatch(LOWORD(wParam), hwnd, lParam);        
+
 				switch(LOWORD(wParam))
 				{
 				case IDM_ESCAPE:
-//						Beep(199,100);
+
 					break;
 					case WM_FINDKEYS:
 						strcpy(Apz,(char*)lParam);
 						ConvertWildcards(Apz,Wildcard);
 						if(Wildcard[0])
 							FindKeys(Wildcard);	
-						//FindKeys((char*)lParam);	
+
 					break;
-					/*
-					case WM_KEYFOUND:
-						SendMessage(ghWndToolbarDlg,WM_COMMAND,(WPARAM)WM_KEYFOUND,lParam);
-					break;
-					*/
 				}
 		 
 		break;
@@ -1485,7 +1133,6 @@ SetBkColor(
 		  if(!HeapDestroy(hDataHeap))
 					err=GetLastError();
                 DestroyWindow(hwnd);
-//				DeleteFile("scarabeo.tmp"); NO, SERVE PER IL RIPRISTINO AUTOMATICO
             break;
 
       default:
@@ -1503,8 +1150,7 @@ TIMERPROC OnTimer()//praga comm
   {
 	  KillTimer(NULL,timer);
 	  timercount=0xFFFF;
-	  AggiornaFinestra();//ShowBoard();
-//	  LeggiVocabolario();
+	  AggiornaFinestra();
   }	
 return 0;
 }
@@ -1532,7 +1178,6 @@ int crypt(HANDLE fileIn,HANDLE fileOut)
 		WriteFile(fileOut,&write,1,&wl,NULL);
 		count++;
 		count%=1020;
-	//	SetFilePointer(fileIn,1,0,FILE_CURRENT);
 	}
 	return count;
 }
@@ -1560,10 +1205,6 @@ void crcgen( )
 int maincrypt(int op)
 {
 HANDLE fpr,fpw;
-//int n;
-
-
-
 
 //prima testa crypt
 switch(op)
@@ -1581,7 +1222,7 @@ fpr=CreateFile(
 if(fpr==INVALID_HANDLE_VALUE)
 	return 1;
 
-//fpw=fopen(FILE_CRYPT,"wb");
+
 fpw=CreateFile(
 		   FILE_CRYPT,
 		   GENERIC_WRITE,
@@ -1600,7 +1241,7 @@ if(fpw==INVALID_HANDLE_VALUE){
 break;
 
 case DEKRYPT:
-//fpr=fopen(FILE_CRYPT,"rb");
+
 fpr=CreateFile(
 		   FILE_CRYPT,
 		   GENERIC_READ,
@@ -1638,64 +1279,28 @@ return 0;
 }
 
 
-int LeggiVocabolario(){
-/*
-	int z=MessageBox(ghwndMain,"Premere Yes per Italiano\r\nPress No for English","",MB_YESNO|MB_ICONQUESTION);
-	if(z==IDYES)
-		strcpy(gFILE_VOCABOLARIO,FILE_VOCABOLARIO_IT);
-	else
-		strcpy(gFILE_VOCABOLARIO,FILE_VOCABOLARIO_EN);
-*/
-#ifdef ITALIA
-	strcpy(gFILE_VOCABOLARIO,FILE_VOCABOLARIO_IT);
-#else
-	strcpy(gFILE_VOCABOLARIO,FILE_VOCABOLARIO_EN);
-#endif
-	crcgen();
-#ifdef KRYPTER
-	if(maincrypt(DEKRYPT))
-	{
-		ErrorReporter("Vocabolario Assente");
-		return 0;
-	}
-	HeapInit();
-	DeleteFile(gFILE_VOCABOLARIO);
-#else
-	HeapInit();
-#endif
+int LeggiVocabolario()
+{
+	char buff[MAX_PATH];
+	sprintf(buff, "C:\\ProgramData\\Scarabit");
+	CreateDirectory(buff,NULL);
+	strcat(buff, "\\");
 
-#ifdef LUBECK
-	Install();//LUBECK prova!!
-	if(!CheckRegister())//LUBECK
-	{
-		ErrorReporter("TEMPO VALUTAZIONE SCADUTO");
-		return 0;
-	}
+#ifdef ITALIA
+	strcat(buff, FILE_VOCABOLARIO_IT);
+	strcpy(gFILE_VOCABOLARIO, buff);
+	CopyFile(FILE_VOCABOLARIO_IT, gFILE_VOCABOLARIO, TRUE);
+#else
+	strcat(buff, FILE_VOCABOLARIO_EN);
+	strcpy(gFILE_VOCABOLARIO, buff);
+	CopyFile(FILE_VOCABOLARIO_EN, gFILE_VOCABOLARIO, TRUE);
 #endif
+	
+	crcgen();
+	HeapInit();
 
 	return 1;
 }
-/*
-Translate(char *pb)
-{
-
-	char mio[32];
-	char *pm=mio;
-
-			*pb=tolower(*pb);
-			while(*pb)
-				*pb=tolower(*pb);
-
-			if(*pb=='*');
-			else if(*pb!='$')
-			{
-				*pm++='$'
-
-			}
-			strcpy(pm,pb);
-			pb=pm;
-}			
-*/
 
 int CheckRegister()//LUBECK
 {
@@ -1714,7 +1319,6 @@ int CheckRegister()//LUBECK
 	DWORD dwtype,dwlen;
 	TCHAR szP[32];
     
-//    LONG lRet;
 	
 	HKEY hk1,hk2;
 	
@@ -1802,10 +1406,6 @@ int Install()//LUBECK
 		dec[count]=(char)szI[count]^*(ptab+count);
 
 	
-//	DWORD dwtype,dwlen;
-//	TCHAR szP[32];
-    
-//    LONG lRet;
 
 	if(RegOpenKey(
 	HKEY_LOCAL_MACHINE,        // handle to open key
@@ -1903,39 +1503,12 @@ int FiltraListBox(char* m)//elpaso
 	}
 
 	SetDlgItemText(ghWndToolbarDlg,IDC_EDIT2,bufedit2);			
-/*
-	int erro=SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_GETCOUNT,0,0);			
-	for(int n=0;n<erro;n++)
-	{
-		SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_SETCURSEL,(WPARAM)(n),(LPARAM)0);
-		SendDlgItemMessage(ghWndToolbarDlg,IDC_LIST,LB_GETTEXT,(WPARAM)(erro),(LPARAM)bufedit);
-
-	}
-*/
-return 0;
+	return 0;
 }
 
 
 int MessaggioFinale()
 {
-	/*
-	if(iplayer[PLAYER1].punti){
-	sprintf(zona_appoggio[0].parola,"Uomo: punti");
-	zona_appoggio[0].value=iplayer[PLAYER1].punti;
-	Parla(&zona_appoggio[0]);						
-	}
-	Sleep(4000);
-	if(iplayer[PLAYER2].punti){
-	sprintf(zona_appoggio[0].parola,"Macchina: punti");
-	zona_appoggio[0].value=iplayer[PLAYER2].punti;
-	Parla(&zona_appoggio[0]);						
-	}
-
-	
-	*/
-//	if(*lpCmdLine=='#')
-//		*lpCmdLine=0X1B;
-//						PlaySound("DING.wav",NULL,NULL);
 	PlaySound(
   "btnup.wav",  
   NULL,     
@@ -1961,10 +1534,10 @@ int MessaggioFinale()
 	strcat(bu,"\r\nSalvare la partita?");
 
 	int n=MessageBox(ghWndToolbarDlg,bu+3,"Fine partita. Salvare?",MB_YESNO|MB_ICONINFORMATION);//ENNA 2CHK
-	//int n=MessageBox(ghWndToolbarDlg,bu+3,"Fine partita.",MB_ICONINFORMATION);
 	if(n==IDYES)
 		salva();
-	DeleteFile("scarabeo.tmp");//GIUSTO
+
+	DeleteFile(SAVE_TMP);
 
 return 0;	
 }
@@ -2054,61 +1627,6 @@ int LeggiParolaInFormazione(POINT p)
 	return 0;
 }
 
-#if 0
-LeggiParolaInFormazione(POINT p)
-{
-	char buf[32];
-	memset(buf,0,sizeof(buf));
-
-	POINT d,e,f,g;
-	
-	d=p;
-
-	while(casa[d.y][d.x].s.lettera&&casa[d.y][d.x].flag&&casa[d.y][d.x].reserved==0)
-		d.x--;
-	d.x++;
-	g=d;
-	while(casa[g.y][g.x].s.lettera&&casa[g.y][g.x].flag&&casa[g.y][g.x].reserved==0)
-		g.x++;
-	g.x--;
-
-	e=p;
-	while(casa[e.y][e.x].s.lettera&&casa[e.y][e.x].flag&&casa[e.y][e.x].reserved==0)
-		e.y--;
-	e.y++;
-	f=e;
-	while(casa[f.y][f.x].s.lettera&&casa[f.y][f.x].flag&&casa[f.y][f.x].reserved==0)
-		f.y++;
-	f.y--;
-
-
-	int n=0;
-	if(f.y-e.y>g.x-d.x)
-	{
-	while(casa[e.y][e.x].s.lettera&&casa[e.y][e.x].flag&&casa[e.y][e.x].reserved==0)
-	{
-		buf[n]=casa[e.y][e.x].s.lettera;
-		e.y++;
-		n++;
-	}
-	}
-	else
-	{
-	while(casa[d.y][d.x].s.lettera&&casa[d.y][d.x].flag&&casa[d.y][d.x].reserved==0)
-	{
-		buf[n]=casa[d.y][d.x].s.lettera;
-		d.x++;
-		n++;
-	}
-	}
-	char b2[32];
-	sprintf(b2,"#m1%s",buf);
-
-	ParlaS(b2);
-}
-#endif
-
-
 
 int poipoipoi(
     HWND hWnd ,
@@ -2133,20 +1651,13 @@ return i;
 }
 int Assegna_punti(int player,int value)
 {
-	//for(int n=0;n<value;n++)
-	//{
-		//Sleep(10);
 		iplayer[player].punti+=value;
-//		Mostra_punti(ghWndToolbarDlg);
-	//}
 		return 0;
 }
 int Mescola_tessere()
 {
 	struct tesseraSTR appo;
 	int dest,src;
-		//for(int n=0;n<8;n++)
-		//{
 			src=rand()%(8);
 			do{dest=rand()%(8);}while(src==dest);
 			
@@ -2155,6 +1666,5 @@ int Mescola_tessere()
 			memcpy(&tessera[player][src],&appo,sizeof(appo));
 		
 			Mostra_tessere_davvero();
-		//}
 return 0;
 }

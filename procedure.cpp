@@ -569,9 +569,9 @@ int salva(int tmp)
 	unsigned short salva_sacco=psacco;//punta alla prossima lettera nel sacco;
 	int x,y;
 	if(!tmp)
-		fp=fopen("Scarabeo.sav","a+");
+		fp=fopen(SAVE_FILE,"a+");
 	else
-		fp=fopen("Scarabeo.tmp","w");
+		fp=fopen(SAVE_TMP,"w");
 	if(fp)
 	{
 		for (y=0;y<15;y++)
@@ -590,7 +590,6 @@ int salva(int tmp)
 			}
 			fprintf(fp,"\n");
 		}
-		//fprintf(fp,"\n");
 
 		for (y=0;y<2;y++)
 			for (x=0;x<8;x++)
@@ -611,14 +610,11 @@ int salva(int tmp)
 
 
 
-	//	fprintf(fp,"%04d\n",psacco);
-	//	for (y=psacco;y<NUM_TESSERE-psacco;y++)
 		while(psacco<NUM_TESSERE)
 		{
 			if(sacco[psacco].lettera<'@'||sacco[psacco].lettera>'z')
 			{
 				ErrorReporter("Errore Salvataggio");
-			//	return 0;
 			}
 				fputc(sacco[psacco++].lettera,fp);
 		}
@@ -627,8 +623,8 @@ int salva(int tmp)
 		psacco=salva_sacco;//punta alla prossima lettera nel sacco;
 		if(!tmp)
 		{
+			DeleteFile(SAVE_TMP);
 			flag_salvato=TRUE;
-//			MessageBox(ghWndToolbarDlg,"La partita e' stata salvata","",MB_ICONINFORMATION|MB_OK);
 		}
 		else
 			flag_salvato=FALSE;
@@ -648,9 +644,9 @@ int ripristina(int tmp)
 	int hj;
 
 	if(tmp!=1)
-		fp=fopen("Scarabeo.sav","rb");
+		fp=fopen(SAVE_FILE,"rb");
 	else
-		fp=fopen("Scarabeo.tmp","rb");
+		fp=fopen(SAVE_TMP,"rb");
 	if(fp)
 	{
 
